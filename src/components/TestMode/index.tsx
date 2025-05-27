@@ -87,12 +87,12 @@ const TestMode: React.FC<TestModeProps> = ({
     const trimmedAnswer = userAnswer.trim();
     
     const existingResultIndex = results.findIndex(
-      r => r.vocabItem.word === currentItem.word
+      r => r.vocabItem.kanji === currentItem.kanji
     );
     
     const correctAnswer = testMode === TestModeType.READING 
-      ? currentItem.reading || ''
-      : currentItem.meaning;
+      ? currentItem.hiragana
+      : currentItem.korean;
     
     const isCorrect = checkAnswer(trimmedAnswer, correctAnswer);
     
@@ -116,14 +116,14 @@ const TestMode: React.FC<TestModeProps> = ({
     } else {
       setCurrentIndex(currentIndex + 1);
       const nextIndex = currentIndex + 1;
-      const nextResult = results.find(r => r.vocabItem.word === testItems[nextIndex].word);
+      const nextResult = results.find(r => r.vocabItem.kanji === testItems[nextIndex].kanji);
       setUserAnswer(nextResult?.userAnswer || '');
     }
   };
 
   const handlePlayPronunciation = () => {
     if (currentItem) {
-      playPronunciation(currentItem.reading || currentItem.word);
+      playPronunciation(currentItem.hiragana);
     }
   };
 
@@ -145,7 +145,7 @@ const TestMode: React.FC<TestModeProps> = ({
           </div>
           
           <div className="test-question">
-            <h2 className="test-word">{currentItem.word}</h2>
+            <h2 className="test-word">{currentItem.kanji}</h2>
             <button 
               className="pronunciation-button"
               onClick={handlePlayPronunciation}

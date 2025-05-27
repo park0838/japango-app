@@ -27,9 +27,9 @@ const VocabularyList: React.FC<VocabularyListProps> = ({ vocabList, onClose }) =
       const term = searchTerm.toLowerCase();
       filtered = filtered.filter(
         item =>
-          item.word.toLowerCase().includes(term) ||
-          item.meaning.toLowerCase().includes(term) ||
-          (item.reading && item.reading.toLowerCase().includes(term))
+          item.kanji.toLowerCase().includes(term) ||
+          item.korean.toLowerCase().includes(term) ||
+          item.hiragana.toLowerCase().includes(term)
       );
     }
 
@@ -38,7 +38,7 @@ const VocabularyList: React.FC<VocabularyListProps> = ({ vocabList, onClose }) =
 
   // 단어 발음 재생
   const handlePlayPronunciation = (item: VocabItem) => {
-    playPronunciation(item.reading || item.word);
+    playPronunciation(item.hiragana);
   };
 
   // 주차 옵션 생성
@@ -101,11 +101,11 @@ const VocabularyList: React.FC<VocabularyListProps> = ({ vocabList, onClose }) =
             </thead>
             <tbody>
               {filteredVocabList.map((item, index) => (
-                <tr key={`${item.word}-${index}`} className="vocab-row">
+                <tr key={`${item.kanji}-${index}`} className="vocab-row">
                   <td className="vocab-week">{item.week}주차</td>
-                  <td className="vocab-word">{item.word}</td>
-                  <td className="vocab-reading">{item.reading}</td>
-                  <td className="vocab-meaning">{item.meaning}</td>
+                  <td className="vocab-word">{item.kanji}</td>
+                  <td className="vocab-reading">{item.hiragana}</td>
+                  <td className="vocab-meaning">{item.korean}</td>
                   <td>
                     <button
                       className="pronunciation-button"

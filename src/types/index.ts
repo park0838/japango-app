@@ -1,8 +1,15 @@
 export interface VocabItem {
-  word: string;          // 일본어 단어 (한자/히라가나)
-  reading?: string;      // 읽는 법 (히라가나)
-  meaning: string;       // 의미 (한국어)
-  week: number;          // 주차 (1, 2, 3, 4...)
+  id: number;            // 단어 ID
+  kanji: string;         // 일본어 단어 (한자)
+  korean: string;        // 의미 (한국어)
+  hiragana: string;      // 읽는 법 (히라가나)
+  week?: number;         // 주차 (1, 2, 3, 4...)
+}
+
+export interface WeekData {
+  week: number;
+  totalWords: number;
+  words: VocabItem[];
 }
 
 export enum TestModeType {

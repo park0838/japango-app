@@ -47,15 +47,15 @@ const TestResults: React.FC<TestResultsProps> = ({ results, onRetry, onGoHome })
           <tbody>
             {results.map((result, index) => {
               const correctAnswer = result.testMode === TestModeType.READING 
-                ? result.vocabItem.reading || ''
-                : result.vocabItem.meaning;
+                ? result.vocabItem.hiragana
+                : result.vocabItem.korean;
               
               return (
                 <tr 
-                  key={`${result.vocabItem.word}-${index}`} 
+                  key={`${result.vocabItem.kanji}-${index}`} 
                   className={`result-row ${result.isCorrect ? 'correct' : 'wrong'}`}
                 >
-                  <td className="result-word">{result.vocabItem.word}</td>
+                  <td className="result-word">{result.vocabItem.kanji}</td>
                   <td className="result-correct-answer">{correctAnswer}</td>
                   <td className={`result-user-answer ${!result.isCorrect ? 'wrong' : ''}`}>
                     {result.userAnswer || '(답변 없음)'}
