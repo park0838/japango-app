@@ -1,12 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JapanGo - 일본어 단어 학습</title>
+    <meta name="description" content="JapanGo - JLPT 일본어 단어 암기 및 학습을 위한 웹 애플리케이션" />
+    <meta name="theme-color" content="#4f46e5" />
+    <title>JapanGo - JLPT 일본어 단어 학습</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+      // 앱 로드 실패 방지를 위한 안전장치
+      window.addEventListener('error', function(e) {
+        console.error('App error:', e);
+        
+        // 10초 이상 로딩이 지속되면 자동 새로고침
+        if (document.readyState !== 'complete') {
+          setTimeout(function() {
+            if (document.readyState !== 'complete') {
+              console.log('Loading timeout - refreshing page');
+              window.location.reload();
+            }
+          }, 10000);
+        }
+      });
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- 초기 로딩 화면 -->
+      <div style="display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh; background-color: #f9fafb;">
+        <div style="text-align: center;">
+          <div style="width: 50px; height: 50px; border: 4px solid #e5e7eb; border-top-color: #4f46e5; border-radius: 50%; margin: 0 auto 16px; animation: spin 1s linear infinite;"></div>
+          <h1 style="font-family: 'Noto Sans KR', sans-serif; font-size: 1.5rem; font-weight: 700; color: #1f2937; margin: 0 0 8px 0;">🇯🇵 JapanGo</h1>
+          <p style="font-family: 'Noto Sans KR', sans-serif; color: #1f2937;">일본어 단어 학습 로딩 중...</p>
+        </div>
+      </div>
+      <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (prefers-color-scheme: dark) {
+          #root > div:first-child { background-color: #111827; }
+          #root > div:first-child h1 { color: #f9fafb; }
+          #root > div:first-child p { color: #f9fafb; }
+          #root > div:first-child div { border-color: #374151; border-top-color: #818cf8; }
+        }
+      </style>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
