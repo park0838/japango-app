@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { WeekData, VocabWord } from '../types';
 
 export const useVocabulary = () => {
@@ -7,18 +7,41 @@ export const useVocabulary = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 주차 데이터 로드
-  const loadWeekData = async (week: number): Promise<WeekData | null> => {
-    try {
-      const response = await fetch(`/vocabulary/week${week}.json`);
-      if (!response.ok) return null;
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(`Error loading week ${week}:`, error);
-      return null;
+  // 주차 데이터 로드 (재시도 로직 포함)
+  const loadWeekData = useCallback(async (week: number, retryCount = 3): Promise<WeekData | null> => {
+    for (let attempt = 1; attempt <= retryCount; attempt++) {
+      try {
+        const response = await fetch(`/vocabulary/week${week}.json`);
+        if (!response.ok) {
+          if (response.status === 404) {
+            // 404는 재시도하지 않음 (해당 주차가 존재하지 않음)
+            return null;
+          }
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        
+        // 데이터 유효성 검증
+        if (!data || !data.words || !Array.isArray(data.words)) {
+          throw new Error('Invalid data format');
+        }
+        
+        return data;
+      } catch (error) {
+        console.warn(`Error loading week ${week} (attempt ${attempt}/${retryCount}):`, error);
+        
+        if (attempt === retryCount) {
+          console.error(`Failed to load week ${week} after ${retryCount} attempts:`, error);
+          return null;
+        }
+        
+        // 재시도 전 지연
+        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+      }
     }
-  };
+    return null;
+  }, []);
 
   // 사용 가능한 주차 확인
   useEffect(() => {

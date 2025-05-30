@@ -25,8 +25,8 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
-    "build:analyze": "tsc && vite build --mode analyze",
+    "build": "npm run sync-vocab && tsc && vite build",
+    "build:analyze": "npm run sync-vocab && tsc && vite build --mode analyze",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "preview": "vite preview --host",
@@ -34,7 +34,9 @@
     "deploy:preview": "npm run build && vercel",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist node_modules/.vite",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "sync-vocab": "node scripts/sync-vocabulary.js",
+    "postinstall": "npm run sync-vocab"
   },
   "dependencies": {
     "react": "^18.2.0",

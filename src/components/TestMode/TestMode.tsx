@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VocabWord, WeekData } from '../../types';
 import { useVocabulary } from '../../hooks/useVocabulary';
 import { saveToStorage, loadFromStorage } from '../../utils/storage';
@@ -243,10 +243,19 @@ export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
   if (!weekData || questions.length === 0) {
     return (
       <div className="error-container">
-        <p className="error-message">테스트를 불러올 수 없습니다.</p>
-        <button className="btn btn-primary" onClick={() => onNavigate('weeks')}>
-          주차 선택으로 돌아가기
-        </button>
+        <div className="error-icon">😔</div>
+        <h2 className="error-title">테스트를 불러올 수 없습니다</h2>
+        <p className="error-message">
+          {!weekData ? '단어 데이터를 불러오는데 실패했습니다.' : '테스트 문제를 생성할 수 없습니다.'}
+        </p>
+        <div className="error-actions">
+          <button className="btn btn-primary" onClick={() => window.location.reload()}>
+            페이지 새로고침
+          </button>
+          <button className="btn btn-secondary" onClick={() => onNavigate('weeks')}>
+            주차 선택으로
+          </button>
+        </div>
       </div>
     );
   }
@@ -398,7 +407,13 @@ export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
           <div className="audio-hint">
             <button 
               className="btn btn-secondary btn-sm"
-              onClick={() => speakJapanese(currentQuestion.word.hiragana)}
+              onClick={async () => {
+                try {
+                  await speakJapanese(currentQuestion.word.hiragana);
+                } catch (error) {
+                  console.warn('음성 재생에 실패했습니다:', error);
+                }
+              }}
             >
               🔊 발음 듣기
             </button>

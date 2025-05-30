@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VocabWord, WeekData } from '../../types';
 import { useVocabulary } from '../../hooks/useVocabulary';
 import { saveToStorage, loadFromStorage } from '../../utils/storage';
@@ -89,10 +89,14 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     setShowHint(false);
   };
 
-  const handleCardFlip = () => {
+  const handleCardFlip = async () => {
     setIsCardFlipped(!isCardFlipped);
-    if (!isCardFlipped && weekData) {
-      speakJapanese(weekData.words[currentIndex].hiragana);
+    if (!isCardFlipped && currentWord) {
+      try {
+        await speakJapanese(currentWord.hiragana);
+      } catch (error) {
+        console.warn('음성 재생에 실패했습니다:', error);
+      }
     }
   };
 
@@ -134,16 +138,32 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
   if (!weekData) {
     return (
       <div className="error-container">
-        <p className="error-message">단어를 불러올 수 없습니다.</p>
-        <button className="btn btn-primary" onClick={() => onNavigate('weeks')}>
-          주차 선택으로 돌아가기
-        </button>
+        <div className="error-icon">😔</div>
+        <h2 className="error-title">단어를 불러올 수 없습니다</h2>
+        <p className="error-message">
+          네트워크 연결을 확인하거나 잠시 후 다시 시도해주세요.
+        </p>
+        <div className="error-actions">
+          <button className="btn btn-primary" onClick={() => window.location.reload()}>
+            페이지 새로고침
+          </button>
+          <button className="btn btn-secondary" onClick={() => onNavigate('weeks')}>
+            주차 선택으로
+          </button>
+        </div>
       </div>
     );
   }
 
-  const currentWord = weekData.words[currentIndex];
-  const progress = ((currentIndex + 1) / weekData.words.length) * 100;
+  // 성능 최적화: currentWord를 useMemo로 메모화
+  const currentWord = useMemo(() => {
+    return weekData?.words[currentIndex] || null;
+  }, [weekData, currentIndex]);
+  
+  const progress = useMemo(() => {
+    if (!weekData || weekData.words.length === 0) return 0;
+    return ((currentIndex + 1) / weekData.words.length) * 100;
+  }, [currentIndex, weekData]);
 
   return (
     <div className="study-mode performance-optimized" role="main" aria-label="일본어 단어 학습 모드">
@@ -224,7 +244,13 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
         <div className="audio-section">
           <button 
             className="btn btn-secondary"
-            onClick={() => speakJapanese(currentWord.hiragana)}
+            onClick={async () => {
+              try {
+                await speakJapanese(currentWord.hiragana);
+              } catch (error) {
+                console.warn('음성 재생에 실패했습니다:', error);
+              }
+            }}
           >
             🔊 발음 듣기
           </button>
