@@ -3,15 +3,38 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "일본어 단어 암기 웹 애플리케이션 - 주차별 90개 단어 학습",
+  "description": "현대적이고 체계적인 일본어 단어 암기 웹 애플리케이션 - 주차별 90개 단어 학습",
   "author": "JapanGo Team",
   "license": "MIT",
+  "keywords": [
+    "japanese",
+    "language-learning",
+    "vocabulary",
+    "education",
+    "pwa",
+    "react",
+    "typescript"
+  ],
+  "homepage": "https://japango.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/japango-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/japango-app/issues"
+  },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
+    "build:analyze": "tsc && vite build --mode analyze",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "deploy": "npm run build && vercel --prod"
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "preview": "vite preview --host",
+    "deploy": "npm run build && vercel --prod",
+    "deploy:preview": "npm run build && vercel",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -23,12 +46,46 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitejs/plugin-pwa": "^0.17.5",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-plugin-pwa": "^0.17.5"
+    "vite-plugin-pwa": "^0.17.5",
+    "workbox-window": "^7.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{js,ts,tsx,css,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }

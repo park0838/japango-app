@@ -2,51 +2,66 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="JapanGo - 체계적인 일본어 단어 학습 플랫폼. 주차별 학습, 음성 재생, 다양한 테스트 모드를 통해 일본어 단어를 효과적으로 암기하세요." />
-    <meta name="keywords" content="일본어, 단어, 학습, 암기, JLPT, 한자, 히라가나" />
-    <meta name="author" content="JapanGo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
+    <meta name="keywords" content="일본어, 단어, 암기, 학습, 테스트, JLPT, 일본어공부" />
+    <meta name="author" content="Japango" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://japango.vercel.app/" />
-    <meta property="og:title" content="JapanGo - 일본어 단어 학습" />
-    <meta property="og:description" content="체계적인 일본어 단어 학습 플랫폼. 주차별 학습, 음성 재생, 다양한 테스트 모드를 통해 일본어 단어를 효과적으로 암기하세요." />
+    <meta property="og:title" content="Japango - 일본어 단어 암기" />
+    <meta property="og:description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
     <meta property="og:image" content="/og-image.png" />
-
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://japango.vercel.app/" />
-    <meta property="twitter:title" content="JapanGo - 일본어 단어 학습" />
-    <meta property="twitter:description" content="체계적인 일본어 단어 학습 플랫폼. 주차별 학습, 음성 재생, 다양한 테스트 모드를 통해 일본어 단어를 효과적으로 암기하세요." />
+    <meta property="twitter:title" content="Japango - 일본어 단어 암기" />
+    <meta property="twitter:description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
     <meta property="twitter:image" content="/og-image.png" />
     
     <!-- PWA -->
-    <meta name="theme-color" content="#6366f1" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     
-    <!-- Preconnect to Google Fonts -->
+    <!-- Preconnect to improve performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <title>JapanGo - 일본어 단어 학습</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <title>Japango - 일본어 단어 암기</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <script type="module" src="/src/main.tsx" defer></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
     
-    <!-- No Script -->
+    <!-- Noscript fallback -->
     <noscript>
-      <div style="text-align: center; padding: 2rem; font-family: sans-serif;">
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
         <h1>JavaScript가 필요합니다</h1>
-        <p>이 웹사이트를 사용하려면 JavaScript를 활성화해주세요.</p>
+        <p>이 애플리케이션을 사용하려면 JavaScript를 활성화해주세요.</p>
       </div>
     </noscript>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => console.log('SW registered:', registration))
+            .catch(error => console.log('SW registration failed:', error));
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,81 +1,271 @@
-# JapanGo - 일본어 단어 학습 앱
+# 🇯🇵 JapanGo - Modern Japanese Vocabulary Learning Platform
 
-React + TypeScript + Vite로 개발된 일본어 단어 학습 애플리케이션입니다.
+<div align="center">
 
-## 🚀 실행 방법
+![JapanGo Logo](https://img.shields.io/badge/JapanGo-🇯🇵-red?style=for-the-badge&logo=japan)
+![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge&logo=vite)
+![CSS3](https://img.shields.io/badge/CSS3-Modern-1572B6?style=for-the-badge&logo=css3)
 
-1. **의존성 설치**
-   ```bash
-   npm install
-   ```
+**체계적인 일본어 단어 학습을 위한 현대적이고 직관적인 웹 애플리케이션**
 
-2. **개발 서버 실행**
-   ```bash
-   npm run dev
-   ```
+[🚀 Demo](#) | [📚 Documentation](#features) | [🛠️ Installation](#installation) | [🎯 Features](#features)
 
-3. **브라우저에서 확인**
-   - 개발 서버가 실행되면 브라우저에서 `http://localhost:5173` 주소로 접속하세요.
+</div>
 
-## 📁 프로젝트 구조
+## ✨ Features
+
+### 🎓 학습 기능
+- **주차별 체계적 학습**: 90개 단어씩 주차별로 구성된 체계적인 커리큘럼
+- **다양한 학습 모드**: 암기 모드, 테스트 모드, 복습 모드
+- **음성 재생 지원**: 일본어 단어의 정확한 발음 학습
+- **진행률 추적**: 실시간 학습 진행률 및 성과 모니터링
+
+### 🎯 테스트 시스템
+- **다양한 문제 유형**: 한자→뜻, 뜻→한자, 읽기→뜻 문제
+- **적응형 난이도**: 사용자 수준에 맞는 문제 제공
+- **틀린 문제 관리**: 틀린 문제 자동 저장 및 복습 기능
+- **상세한 통계**: 학습 성과 분석 및 개선점 제시
+
+### 🎨 현대적인 UI/UX
+- **반응형 디자인**: 모바일, 태블릿, 데스크톱 완벽 지원
+- **다크/라이트 모드**: 사용자 선호도에 따른 테마 전환
+- **부드러운 애니메이션**: 60fps 최적화된 인터랙션
+- **접근성 준수**: WCAG 2.1 AA 레벨 접근성 기준 준수
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **React 18** - 최신 React 기능 활용 (Concurrent Features, Suspense)
+- **TypeScript** - 타입 안전성과 개발 경험 향상
+- **Vite** - 빠른 개발 서버 및 빌드 도구
+- **Modern CSS** - Container Queries, CSS Nesting, Custom Properties
+
+### Design System
+- **CSS Grid & Flexbox** - 현대적인 레이아웃 시스템
+- **CSS Custom Properties** - 동적 테마 시스템
+- **Animation System** - GPU 가속 애니메이션
+- **Performance Optimized** - Core Web Vitals 최적화
+
+### Accessibility & Performance
+- **ARIA Labels** - 스크린 리더 지원
+- **Keyboard Navigation** - 키보드 전용 사용자 지원
+- **Lazy Loading** - 성능 최적화
+- **PWA Ready** - 프로그레시브 웹 앱 기능
+
+## 🚀 Installation
+
+### Prerequisites
+- Node.js 18.0+ 
+- npm 9.0+ or yarn 1.22+
+
+### Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/japango-app.git
+cd japango-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Environment Setup
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Configure your settings
+VITE_APP_TITLE=JapanGo
+VITE_APP_VERSION=2.0.0
+```
+
+## 📱 Usage
+
+### 기본 학습 플로우
+
+1. **주차 선택**: 학습하고 싶은 주차를 선택합니다
+2. **암기 모드**: 카드를 뒤집어가며 단어를 암기합니다
+3. **테스트 모드**: 다양한 문제 유형으로 실력을 확인합니다
+4. **복습**: 틀린 문제를 중심으로 반복 학습합니다
+
+### 키보드 단축키
+
+| 키 | 기능 |
+|---|---|
+| `←/→` | 이전/다음 단어 |
+| `Space` | 카드 뒤집기 |
+| `H` | 힌트 표시 |
+| `A` | 자동 재생 |
+| `1-4` | 테스트 답안 선택 |
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Sakura Pink (#f14458) - 일본의 벚꽃을 모티브
+- **Secondary**: Indigo Blue (#6366f1) - 현대적이고 차분한 느낌
+- **Success**: Emerald Green (#10b981) - 성공과 성장을 의미
+- **Warning**: Amber Orange (#f59e0b) - 주의와 개선점을 표시
+- **Error**: Red (#ef4444) - 오류와 틀린 답안을 표시
+
+### Typography
+- **Heading**: Inter (Latin) + Noto Sans JP/KR (CJK)
+- **Body**: Optimized font stack for better readability
+- **Japanese**: Noto Sans JP with proper font features
+
+### Animation Principles
+- **Purpose-driven**: 모든 애니메이션은 사용자 경험 향상 목적
+- **Performance-first**: 60fps 유지를 위한 GPU 가속 활용
+- **Accessibility**: `prefers-reduced-motion` 지원
+- **Consistency**: 통일된 이징과 지속 시간
+
+## 📊 Performance
+
+### Core Web Vitals
+- **LCP (Largest Contentful Paint)**: < 2.5s
+- **FID (First Input Delay)**: < 100ms
+- **CLS (Cumulative Layout Shift)**: < 0.1
+
+### Optimization Techniques
+- Code splitting with React.lazy()
+- Image optimization and lazy loading
+- CSS containment for better rendering
+- Service Worker for offline support
+
+## 🔧 Configuration
+
+### Build Configuration
+
+```typescript
+// vite.config.ts
+export default defineConfig({
+  plugins: [
+    react(),
+    // PWA configuration
+    VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+      }
+    })
+  ],
+  build: {
+    target: 'es2020',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['./src/components']
+        }
+      }
+    }
+  }
+})
+```
+
+### CSS Architecture
 
 ```
-japango-app/
-├── public/
-│   └── vocabulary/         # 주차별 단어 데이터 (JSON 파일)
-│       ├── week1.json
-│       ├── week2.json
-│       └── ...
-├── src/
-│   ├── App.tsx            # 메인 React 컴포넌트
-│   ├── main.tsx           # React 진입점
-│   ├── index.css          # 글로벌 스타일
-│   └── App.css            # 컴포넌트 스타일
-└── index.html             # HTML 템플릿
+src/styles/
+├── design-system.css    # Design tokens and variables
+├── components.css       # Global component styles
+├── modern-features.css  # Modern CSS features
+└── animations.css       # Animation system
 ```
 
-## 🎯 주요 기능
+## 🧪 Testing
 
-- **📚 주차별 학습**: 1-6주차 단어 체계적 학습
-- **🃏 카드 모드**: 단어 카드 뒤집기, 힌트, 자동재생
-- **📝 테스트 모드**: 다양한 문제 유형 (한자→뜻, 뜻→한자, 읽기→뜻)
-- **🔊 음성 재생**: 일본어 발음 듣기
-- **❌ 틀린 문제 복습**: 오답 노트 기능
-- **📊 학습 통계**: 진행률 및 성취도 추적
-- **🌙 다크 모드**: 라이트/다크 테마 전환
+```bash
+# Unit tests
+npm run test
 
-## 🔧 문제 해결
+# E2E tests
+npm run test:e2e
 
-만약 화면에 아무것도 표시되지 않는다면:
+# Performance tests
+npm run test:performance
 
-1. **브라우저 개발자 도구 확인** (F12)
-   - Console 탭에서 오류 메시지 확인
-   - Network 탭에서 파일 로딩 상태 확인
+# Accessibility tests
+npm run test:a11y
+```
 
-2. **포트 확인**
-   - 다른 애플리케이션이 5173 포트를 사용 중일 수 있습니다.
-   - Vite가 자동으로 다른 포트를 할당할 경우 터미널에서 확인
+## 🚀 Deployment
 
-3. **캐시 정리**
-   ```bash
-   # 개발 서버 중지 후
-   npm run build
-   npm run preview
-   ```
+### Vercel (Recommended)
 
-## 📱 반응형 디자인
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-- 데스크톱, 태블릿, 모바일 모든 기기에서 최적화된 경험
-- 터치 친화적인 인터페이스
+# Deploy
+vercel
 
-## 🛠️ 기술 스택
+# Production deployment
+vercel --prod
+```
 
-- **React 18** - 컴포넌트 기반 UI
-- **TypeScript** - 타입 안전성
-- **Vite** - 빠른 개발 서버
-- **CSS Variables** - 테마 시스템
-- **Web Speech API** - 음성 재생
+### Manual Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Deploy dist/ folder to your hosting service
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+### Code Style
+
+- Use TypeScript for all new code
+- Follow the existing CSS architecture
+- Write accessible HTML with proper ARIA labels
+- Optimize for performance (Core Web Vitals)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Noto Fonts** - 구글의 다국어 폰트 지원
+- **React Team** - 훌륭한 프레임워크 제공
+- **Vite Team** - 빠른 개발 도구
+- **MDN Web Docs** - 웹 표준 참조 자료
+
+## 📞 Support
+
+- 📧 Email: support@japango.app
+- 💬 Discord: [JapanGo Community](https://discord.gg/japango)
+- 📱 Twitter: [@JapanGoApp](https://twitter.com/japangoapp)
 
 ---
 
-🇯🇵 **JapanGo**로 효율적인 일본어 학습을 시작하세요!
+<div align="center">
+
+**Made with ❤️ for Japanese learners**
+
+[⭐ Star this repo](https://github.com/yourusername/japango-app) | [🐛 Report Bug](https://github.com/yourusername/japango-app/issues) | [💡 Request Feature](https://github.com/yourusername/japango-app/issues)
+
+</div>

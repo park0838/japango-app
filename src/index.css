@@ -5,8 +5,13 @@
 /* Font Imports - 최적화된 일본어/한국어 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Animation & Modern CSS Imports */
+@import './animations.css';
+@import './styles/modern-features.css';
+@import './styles/optimizations.css';
+
 /* ========================================
-   Modern CSS Reset
+   Modern CSS Reset & Performance Optimizations
    ======================================== */
 
 *,
@@ -33,6 +38,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  
+  /* Performance optimizations */
+  contain: layout style;
+  transform: translateZ(0);
+  
+  /* Better text rendering on high-DPI displays */
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  
+  /* Improve font rendering */
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
 /* 미디어 요소 기본 설정 */
@@ -118,8 +136,16 @@ input[type="number"] {
 #root {
   isolation: isolate;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
   flex-direction: column;
+  
+  /* Performance optimization */
+  contain: layout style paint;
+  
+  /* Better stacking context */
+  position: relative;
+  z-index: 0;
 }
 
 /* ========================================

@@ -1,0 +1,215 @@
+/* ProgressBar.css */
+
+/* Linear Progress Bar */
+.progress-bar-wrapper {
+  width: 100%;
+  margin: var(--spacing-sm) 0;
+}
+
+.progress-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.progress-bar-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.progress-bar-percentage {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+}
+
+.progress-bar-track {
+  width: 100%;
+  background: var(--color-background-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Progress Bar Sizes */
+.progress-bar-small .progress-bar-track {
+  height: 4px;
+}
+
+.progress-bar-medium .progress-bar-track {
+  height: 8px;
+}
+
+.progress-bar-large .progress-bar-track {
+  height: 12px;
+}
+
+/* Progress Bar Colors */
+.progress-bar-primary {
+  background: var(--color-primary);
+}
+
+.progress-bar-success {
+  background: var(--color-success);
+}
+
+.progress-bar-warning {
+  background: var(--color-warning);
+}
+
+.progress-bar-error {
+  background: var(--color-error);
+}
+
+/* Animated Progress Bar */
+.progress-bar-animated {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+.progress-bar-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progress-bar-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progress-bar-glow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Circular Progress Bar */
+.circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress-svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress-track {
+  stroke: var(--color-background-tertiary);
+}
+
+.circular-progress-fill {
+  transition: stroke-dashoffset 0.5s ease;
+  stroke-linecap: round;
+}
+
+.circular-progress-primary {
+  stroke: var(--color-primary);
+}
+
+.circular-progress-success {
+  stroke: var(--color-success);
+}
+
+.circular-progress-warning {
+  stroke: var(--color-warning);
+}
+
+.circular-progress-error {
+  stroke: var(--color-error);
+}
+
+.circular-progress-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.circular-progress-percentage {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.circular-progress-label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+/* Circular Progress Sizes */
+.circular-progress-small .circular-progress-percentage {
+  font-size: 0.875rem;
+}
+
+.circular-progress-small .circular-progress-label {
+  font-size: 0.625rem;
+}
+
+.circular-progress-large .circular-progress-percentage {
+  font-size: 1.75rem;
+}
+
+.circular-progress-large .circular-progress-label {
+  font-size: 0.875rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .progress-bar-wrapper {
+    margin: var(--spacing-xs) 0;
+  }
+  
+  .progress-bar-header {
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .progress-bar-label {
+    font-size: 0.75rem;
+  }
+  
+  .progress-bar-percentage {
+    font-size: 0.625rem;
+  }
+}

@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   }, [availableWeeks]);
 
   return (
-    <div className="home-page">
+    <div className="home-page fade-in-up">
       <div className="hero-section">
         <h1 className="hero-title">
           <span className="emoji">🇯🇵</span>
@@ -34,7 +34,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <p className="hero-subtitle">체계적인 일본어 단어 학습 플랫폼</p>
       </div>
 
-      <div className="stats-grid">
+      <div className="stats-grid stagger-fade-in">
         <div className="stat-card primary">
           <div className="stat-number">{availableWeeks.length}</div>
           <div className="stat-label">학습 가능한 주차</div>
@@ -55,7 +55,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         )}
       </div>
 
-      <div className="action-buttons">
+      <div className="action-buttons fade-in-up animate-delay-2">
         <button 
           className="btn btn-primary btn-lg"
           onClick={() => onNavigate('weeks')}
@@ -81,9 +81,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </button>
       </div>
 
-      <div className="features-section">
+      <div className="features-section fade-in-up animate-delay-3">
         <h2 className="section-title">학습 기능</h2>
-        <div className="features-grid">
+        <div className="features-grid stagger-children">
           <div className="feature-card">
             <div className="feature-icon">🔊</div>
             <h3>음성 재생</h3>
@@ -107,9 +107,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="week-preview">
+      <div className="week-preview fade-in-up animate-delay-4">
         <h2 className="section-title">학습 가능한 주차</h2>
-        <div className="week-preview-grid">
+        <div className="week-preview-grid stagger-children">
           {availableWeeks.slice(0, 4).map(week => (
             <div 
               key={week} 

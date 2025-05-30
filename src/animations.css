@@ -1,0 +1,985 @@
+/* ========================================
+   🎭 JapanGo - Advanced Animation System
+   현대적이고 성능 최적화된 애니메이션 시스템
+   ======================================== */
+
+/* ========================================
+   GPU Acceleration & Performance
+   ======================================== */
+
+.animate {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ========================================
+   Entrance Animations - 진입 애니메이션
+   ======================================== */
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Scale animations */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Slide animations */
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Zoom animations */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 1);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes zoomInDown {
+  from {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 1) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+/* ========================================
+   Attention Seekers - 관심 끌기 애니메이션
+   ======================================== */
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes wobble {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ========================================
+   Continuous Animations - 연속 애니메이션
+   ======================================== */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Shimmer & Glow Effects - 반짝임 효과
+   ======================================== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px var(--color-primary);
+  }
+  to {
+    text-shadow: 0 0 30px var(--color-primary), 0 0 40px var(--color-primary);
+  }
+}
+
+@keyframes neonGlow {
+  0%,
+  100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px var(--color-primary);
+  }
+  50% {
+    text-shadow:
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 8px currentColor,
+      0 0 12px var(--color-primary);
+  }
+}
+
+/* ========================================
+   Loading Animations - 로딩 애니메이션
+   ======================================== */
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingDots {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+@keyframes loadingPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* ========================================
+   Progress Animations - 진행률 애니메이션
+   ======================================== */
+
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width, 100%);
+  }
+}
+
+@keyframes progressFill {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes progressShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ========================================
+   Japanese Specific Animations - 일본어 특화 애니메이션
+   ======================================== */
+
+@keyframes kanjiWrite {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes textReveal {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes hiraganaFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Card Flip Animations - 카드 뒤집기 애니메이션
+   ======================================== */
+
+@keyframes flipIn {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipOut {
+  from {
+    transform: perspective(400px);
+  }
+  30% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    opacity: 1;
+  }
+  to {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Mobile Optimized Animations - 모바일 최적화 애니메이션
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile devices */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Disable complex 3D transforms on mobile for better performance */
+  @keyframes bounce {
+    from,
+    20%,
+    53%,
+    to {
+      transform: translateY(0);
+    }
+    40%,
+    43% {
+      transform: translateY(-20px);
+    }
+    70% {
+      transform: translateY(-10px);
+    }
+    80% {
+      transform: translateY(0);
+    }
+    90% {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* ========================================
+   Utility Animation Classes - 유틸리티 클래스
+   ======================================== */
+
+/* Duration classes */
+.animate-fast {
+  animation-duration: var(--duration-150);
+}
+
+.animate-normal {
+  animation-duration: var(--duration-300);
+}
+
+.animate-slow {
+  animation-duration: var(--duration-500);
+}
+
+.animate-slower {
+  animation-duration: var(--duration-700);
+}
+
+.animate-slowest {
+  animation-duration: var(--duration-1000);
+}
+
+/* Delay classes */
+.animate-delay-1 {
+  animation-delay: var(--duration-100);
+}
+
+.animate-delay-2 {
+  animation-delay: var(--duration-200);
+}
+
+.animate-delay-3 {
+  animation-delay: var(--duration-300);
+}
+
+.animate-delay-4 {
+  animation-delay: var(--duration-500);
+}
+
+.animate-delay-5 {
+  animation-delay: var(--duration-700);
+}
+
+/* Fill mode classes */
+.animate-fill-forwards {
+  animation-fill-mode: forwards;
+}
+
+.animate-fill-backwards {
+  animation-fill-mode: backwards;
+}
+
+.animate-fill-both {
+  animation-fill-mode: both;
+}
+
+/* Iteration classes */
+.animate-infinite {
+  animation-iteration-count: infinite;
+}
+
+.animate-once {
+  animation-iteration-count: 1;
+}
+
+.animate-twice {
+  animation-iteration-count: 2;
+}
+
+/* Direction classes */
+.animate-reverse {
+  animation-direction: reverse;
+}
+
+.animate-alternate {
+  animation-direction: alternate;
+}
+
+.animate-alternate-reverse {
+  animation-direction: alternate-reverse;
+}
+
+/* Timing function classes */
+.animate-ease {
+  animation-timing-function: ease;
+}
+
+.animate-ease-in {
+  animation-timing-function: ease-in;
+}
+
+.animate-ease-out {
+  animation-timing-function: ease-out;
+}
+
+.animate-ease-in-out {
+  animation-timing-function: ease-in-out;
+}
+
+.animate-linear {
+  animation-timing-function: linear;
+}
+
+.animate-spring {
+  animation-timing-function: var(--ease-spring);
+}
+
+/* ========================================
+   Entrance Animation Classes - 진입 애니메이션 클래스
+   ======================================== */
+
+.fade-in {
+  animation: fadeIn var(--duration-300) var(--ease-out);
+}
+
+.fade-in-up {
+  animation: fadeInUp var(--duration-300) var(--ease-out);
+}
+
+.fade-in-down {
+  animation: fadeInDown var(--duration-300) var(--ease-out);
+}
+
+.fade-in-left {
+  animation: fadeInLeft var(--duration-300) var(--ease-out);
+}
+
+.fade-in-right {
+  animation: fadeInRight var(--duration-300) var(--ease-out);
+}
+
+.scale-in {
+  animation: scaleIn var(--duration-300) var(--ease-out);
+}
+
+.scale-up {
+  animation: scaleUp var(--duration-200) var(--ease-out);
+}
+
+.slide-in-up {
+  animation: slideInUp var(--duration-300) var(--ease-out);
+}
+
+.slide-in-down {
+  animation: slideInDown var(--duration-300) var(--ease-out);
+}
+
+.slide-in-left {
+  animation: slideInLeft var(--duration-300) var(--ease-out);
+}
+
+.slide-in-right {
+  animation: slideInRight var(--duration-300) var(--ease-out);
+}
+
+.zoom-in {
+  animation: zoomIn var(--duration-300) var(--ease-out);
+}
+
+.zoom-in-down {
+  animation: zoomInDown var(--duration-500) var(--ease-out);
+}
+
+/* ========================================
+   Attention Animation Classes - 관심 끌기 애니메이션 클래스
+   ======================================== */
+
+.bounce {
+  animation: bounce 1s var(--ease-out);
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.swing {
+  animation: swing 1s ease-in-out;
+}
+
+.wobble {
+  animation: wobble 1s ease-in-out;
+}
+
+/* ========================================
+   Continuous Animation Classes - 연속 애니메이션 클래스
+   ======================================== */
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: floatReverse 3s ease-in-out infinite;
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+.ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ========================================
+   Loading Animation Classes - 로딩 애니메이션 클래스
+   ======================================== */
+
+.loading {
+  animation: loading 1s linear infinite;
+}
+
+.loading-dots {
+  animation: loadingDots 1.4s ease-in-out infinite;
+}
+
+.loading-pulse {
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+.skeleton {
+  animation: skeleton 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Special Effect Classes - 특수 효과 클래스
+   ======================================== */
+
+.shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.neon-glow {
+  animation: neonGlow 1.5s ease-in-out infinite;
+}
+
+.progress-shimmer {
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Japanese Specific Classes - 일본어 특화 클래스
+   ======================================== */
+
+.kanji-write {
+  animation: kanjiWrite 2s ease-out;
+}
+
+.text-reveal {
+  animation: textReveal 1s ease-out;
+}
+
+.hiragana-float {
+  animation: hiraganaFloat 4s ease-in-out infinite;
+}
+
+/* ========================================
+   Card Animation Classes - 카드 애니메이션 클래스
+   ======================================== */
+
+.flip-in {
+  animation: flipIn 0.6s ease-out;
+}
+
+.flip-out {
+  animation: flipOut 0.75s ease-out;
+}
+
+/* ========================================
+   Hover & Focus Enhancement Classes
+   ======================================== */
+
+.hover-lift {
+  transition: transform var(--duration-200) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--duration-200) var(--ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow var(--duration-200) var(--ease-out);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+/* ========================================
+   Stagger Animation System - 단계별 애니메이션
+   ======================================== */
+
+.stagger-children > * {
+  animation-delay: calc(var(--stagger-delay, 100ms) * var(--stagger-index, 0));
+}
+
+.stagger-fade-in > * {
+  animation: fadeInUp var(--duration-300) var(--ease-out) both;
+  animation-delay: calc(100ms * var(--index, 0));
+}
+
+.stagger-scale-in > * {
+  animation: scaleIn var(--duration-300) var(--ease-out) both;
+  animation-delay: calc(100ms * var(--index, 0));
+}
+
+/* ========================================
+   Reduced Motion Preferences
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Preserve essential animations but make them instant */
+  .fade-in,
+  .fade-in-up,
+  .fade-in-down,
+  .fade-in-left,
+  .fade-in-right,
+  .scale-in,
+  .scale-up,
+  .slide-in-up,
+  .slide-in-down,
+  .slide-in-left,
+  .slide-in-right,
+  .zoom-in,
+  .zoom-in-down {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* Remove attention-seeking animations completely */
+  .bounce,
+  .pulse,
+  .shake,
+  .swing,
+  .wobble,
+  .float,
+  .float-reverse,
+  .rotate,
+  .spin,
+  .ping,
+  .shimmer,
+  .glow,
+  .neon-glow {
+    animation: none;
+  }
+  
+  /* Keep loading animations but make them simpler */
+  .loading,
+  .loading-dots,
+  .loading-pulse {
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  .skeleton {
+    animation: loadingPulse 2s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  /* Remove all animations in print */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Ensure content is visible */
+  .fade-in,
+  .fade-in-up,
+  .fade-in-down,
+  .fade-in-left,
+  .fade-in-right,
+  .scale-in,
+  .scale-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

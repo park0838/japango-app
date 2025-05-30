@@ -146,7 +146,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
   const progress = ((currentIndex + 1) / weekData.words.length) * 100;
 
   return (
-    <div className="study-mode">
+    <div className="study-mode performance-optimized" role="main" aria-label="일본어 단어 학습 모드">
       <div className="study-header">
         <button className="back-button" onClick={() => onNavigate('weeks')}>
           ← 주차 선택
@@ -188,15 +188,24 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
 
       <div className="study-content">
         <div 
-          className={`word-card ${isCardFlipped ? 'flipped' : ''}`}
+          className={`word-card ${isCardFlipped ? 'flipped' : ''} gpu-accelerated`}
           onClick={handleCardFlip}
+          role="button"
+          tabIndex={0}
+          aria-label={`단어 카드: ${currentWord.kanji}. 클릭하거나 스페이스바를 눌러 뒤집으세요`}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCardFlip();
+            }
+          }}
         >
-          <div className="card-front">
+          <div className="card-front" aria-hidden={isCardFlipped}>
             <div className="kanji">{currentWord.kanji}</div>
             <p className="card-hint">카드를 클릭하여 뒤집어보세요</p>
           </div>
           
-          <div className="card-back">
+          <div className="card-back" aria-hidden={!isCardFlipped}>
             <div className="kanji-small">{currentWord.kanji}</div>
             <div className="reading">{currentWord.hiragana}</div>
             <div className="meaning">{currentWord.korean}</div>
@@ -221,7 +230,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
           </button>
         </div>
 
-        <div className="navigation-buttons">
+        <div className="navigation-buttons" role="navigation" aria-label="단어 탐색">
           <button 
             className="btn btn-outline btn-lg"
             onClick={handlePrev}

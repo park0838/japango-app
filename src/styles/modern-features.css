@@ -1,0 +1,671 @@
+/* ========================================
+   🇯🇵 JapanGo - Enhanced Performance & Modern CSS
+   최신 CSS 기능과 성능 최적화
+   ======================================== */
+
+/* ========================================
+   CSS Container Queries (최신 브라우저 지원)
+   ======================================== */
+
+/* Container query support for responsive components */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+@container card (min-width: 300px) {
+  .card {
+    padding: var(--space-6);
+  }
+  
+  .card-title {
+    font-size: var(--text-xl);
+  }
+}
+
+@container card (min-width: 500px) {
+  .card {
+    padding: var(--space-8);
+  }
+  
+  .card-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ========================================
+   CSS Logical Properties (국제화 지원)
+   ======================================== */
+
+.logical-spacing {
+  margin-block: var(--space-4);
+  margin-inline: var(--space-6);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  border-block-start: var(--border-1) solid var(--color-border-light);
+  border-inline-start: var(--border-2) solid var(--color-primary);
+}
+
+.logical-text {
+  text-align: start;
+  float: inline-start;
+}
+
+/* ========================================
+   CSS Subgrid (최신 브라우저 지원)
+   ======================================== */
+
+@supports (grid-template-rows: subgrid) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+  
+  .grid-item {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
+  
+  .grid-item-header,
+  .grid-item-body,
+  .grid-item-footer {
+    align-self: stretch;
+  }
+}
+
+/* ========================================
+   CSS :has() Selector (최신 브라우저 지원)
+   ======================================== */
+
+/* Style cards differently based on their content */
+.card:has(.error-content) {
+  border-color: var(--color-error);
+  background: var(--color-error-light);
+}
+
+.card:has(.success-content) {
+  border-color: var(--color-success);
+  background: var(--color-success-light);
+}
+
+.card:has(.warning-content) {
+  border-color: var(--color-warning);
+  background: var(--color-warning-light);
+}
+
+/* Style navigation based on active state */
+.nav:has(.nav-link.active) .nav-brand {
+  opacity: 0.8;
+}
+
+/* Form validation styling */
+.form-group:has(input:invalid) .form-label {
+  color: var(--color-error);
+}
+
+.form-group:has(input:valid) .form-label {
+  color: var(--color-success);
+}
+
+/* ========================================
+   CSS Grid Improvements
+   ======================================== */
+
+/* Dynamic grid with intrinsic sizing */
+.dynamic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* Masonry-like layout with CSS Grid */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: max-content;
+  gap: var(--space-4);
+}
+
+.masonry-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ========================================
+   Enhanced Animation Performance
+   ======================================== */
+
+/* Use transform and opacity for better performance */
+.optimized-animation {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* GPU-accelerated hover effects */
+.gpu-hover {
+  transition: transform var(--duration-200) var(--ease-out);
+}
+
+.gpu-hover:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Optimize scroll animations */
+.scroll-optimized {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* ========================================
+   CSS Custom Properties for Dynamic Theming
+   ======================================== */
+
+/* Dynamic color generation */
+.theme-adaptive {
+  --primary-hsl: 348 83% 47%;
+  --primary-alpha: 1;
+  
+  color: hsl(var(--primary-hsl) / var(--primary-alpha));
+  background: hsl(var(--primary-hsl) / 0.1);
+  border: var(--border-1) solid hsl(var(--primary-hsl) / 0.3);
+}
+
+.theme-adaptive:hover {
+  --primary-alpha: 0.9;
+  background: hsl(var(--primary-hsl) / 0.15);
+}
+
+/* ========================================
+   Modern CSS Functions
+   ======================================== */
+
+/* Clamp for fluid typography */
+.fluid-text {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  line-height: clamp(1.2, 1.5vw, 1.6);
+}
+
+/* Min/Max for responsive sizing */
+.responsive-width {
+  width: min(90vw, 1200px);
+  max-width: max(300px, 50vw);
+}
+
+/* ========================================
+   CSS Cascade Layers (@layer)
+   ======================================== */
+
+@layer reset, components, utilities, overrides;
+
+@layer reset {
+  /* Reset styles have lowest priority */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* Component styles */
+  .btn {
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+  }
+}
+
+@layer utilities {
+  /* Utility classes */
+  .text-center { text-align: center; }
+  .hidden { display: none; }
+}
+
+@layer overrides {
+  /* High-priority overrides */
+  .force-visible {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+/* ========================================
+   CSS Nesting (Native CSS Nesting)
+   ======================================== */
+
+.modern-card {
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-elevated);
+  transition: var(--transition-base);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    
+    .card-title {
+      color: var(--color-primary);
+    }
+    
+    .card-icon {
+      transform: scale(1.1);
+    }
+  }
+  
+  &:focus-within {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  & .card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    
+    & .card-icon {
+      transition: transform var(--duration-200) var(--ease-out);
+    }
+  }
+  
+  & .card-body {
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+  
+  & .card-footer {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: var(--border-1) solid var(--color-border-light);
+  }
+}
+
+/* ========================================
+   Enhanced Form Styling
+   ======================================== */
+
+.modern-form {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 500px;
+  
+  .form-group {
+    position: relative;
+    
+    .form-input {
+      width: 100%;
+      padding: var(--space-4);
+      border: var(--border-1) solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      transition: var(--transition-base);
+      background: var(--color-bg-elevated);
+      
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px hsl(var(--primary-hsl) / 0.1);
+      }
+      
+      &:invalid {
+        border-color: var(--color-error);
+        
+        &:focus {
+          box-shadow: 0 0 0 3px hsl(0 84% 60% / 0.1);
+        }
+      }
+      
+      &:valid {
+        border-color: var(--color-success);
+      }
+    }
+    
+    .form-label {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      color: var(--color-text-secondary);
+      transition: var(--transition-base);
+      pointer-events: none;
+      background: var(--color-bg-elevated);
+      padding: 0 var(--space-1);
+    }
+    
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label {
+      top: -8px;
+      left: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-primary);
+    }
+  }
+}
+
+/* ========================================
+   Advanced Animation States
+   ======================================== */
+
+/* View transitions API (experimental) */
+@supports (view-transition-name: none) {
+  .page-transition {
+    view-transition-name: page-slide;
+  }
+  
+  ::view-transition-old(page-slide) {
+    animation: slideOutLeft 0.3s ease-out;
+  }
+  
+  ::view-transition-new(page-slide) {
+    animation: slideInRight 0.3s ease-out;
+  }
+}
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Scroll-driven Animations
+   ======================================== */
+
+@supports (animation-timeline: scroll()) {
+  .scroll-animation {
+    animation: fadeInUp linear;
+    animation-timeline: scroll();
+    animation-range: entry 0% cover 40%;
+  }
+  
+  .parallax-element {
+    animation: parallax linear;
+    animation-timeline: scroll();
+  }
+  
+  @keyframes parallax {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50px);
+    }
+  }
+}
+
+/* ========================================
+   Color Mix Function
+   ======================================== */
+
+@supports (color: color-mix(in srgb, red, blue)) {
+  .color-mix-button {
+    background: color-mix(in srgb, var(--color-primary) 80%, white 20%);
+    
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary) 90%, black 10%);
+    }
+  }
+  
+  .color-mix-text {
+    color: color-mix(in srgb, var(--color-text-primary) 85%, var(--color-primary) 15%);
+  }
+}
+
+/* ========================================
+   CSS Anchor Positioning (experimental)
+   ======================================== */
+
+@supports (anchor-name: --anchor) {
+  .anchor-reference {
+    anchor-name: --tooltip-anchor;
+  }
+  
+  .anchored-tooltip {
+    position: absolute;
+    position-anchor: --tooltip-anchor;
+    inset-area: top;
+    margin-bottom: 10px;
+  }
+}
+
+/* ========================================
+   Performance Monitoring Hints
+   ======================================== */
+
+/* Content-visibility for better rendering performance */
+.performance-optimized {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ========================================
+   Enhanced Dark Mode Support
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-theme) {
+    color-scheme: dark;
+    
+    /* Enhanced dark mode colors */
+    --color-bg-elevated: hsl(220 13% 9%);
+    --color-bg-surface: hsl(220 13% 7%);
+    --color-border-light: hsl(220 13% 15%);
+    --color-border-default: hsl(220 13% 20%);
+  }
+}
+
+/* ========================================
+   Reduced Data Preferences
+   ======================================== */
+
+@media (prefers-reduced-data: reduce) {
+  /* Disable non-essential animations */
+  .non-essential-animation {
+    animation: none !important;
+  }
+  
+  /* Use simpler backgrounds */
+  .data-heavy-background {
+    background: var(--color-bg-surface) !important;
+  }
+  
+  /* Disable autoplay for videos/audio */
+  video, audio {
+    preload: none;
+  }
+}
+
+/* ========================================
+   Enhanced Accessibility
+   ======================================== */
+
+/* Focus ring improvements */
+@supports selector(:focus-visible) {
+  .focus-ring {
+    outline: none;
+    
+    &:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+  }
+}
+
+/* High contrast improvements */
+@media (prefers-contrast: high) {
+  .high-contrast-optimized {
+    border: var(--border-2) solid;
+    background: Canvas;
+    color: CanvasText;
+  }
+  
+  .high-contrast-button {
+    background: ButtonFace;
+    color: ButtonText;
+    border: var(--border-2) solid ButtonText;
+    
+    &:hover {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+}
+
+/* ========================================
+   Print Optimizations
+   ======================================== */
+
+@media print {
+  /* Optimize for print */
+  .print-optimized {
+    break-inside: avoid;
+    color: black !important;
+    background: white !important;
+  }
+  
+  .print-hide {
+    display: none !important;
+  }
+  
+  .print-show {
+    display: block !important;
+  }
+  
+  /* Ensure good contrast for print */
+  .card, .btn {
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ========================================
+   Browser-specific Optimizations
+   ======================================== */
+
+/* Safari-specific optimizations */
+@supports (-webkit-appearance: none) and (not (appearance: none)) {
+  .safari-optimized {
+    -webkit-appearance: none;
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Firefox-specific optimizations */
+@supports (-moz-appearance: none) {
+  .firefox-optimized {
+    -moz-appearance: none;
+    scrollbar-width: thin;
+  }
+}
+
+/* Chromium-specific optimizations */
+@supports (background: -webkit-named-image(i)) {
+  .chromium-optimized {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* ========================================
+   Future-proofing with Feature Queries
+   ======================================== */
+
+/* CSS Grid fallbacks */
+@supports not (display: grid) {
+  .grid-fallback {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .grid-item-fallback {
+    flex: 1 1 300px;
+  }
+}
+
+/* Custom properties fallbacks */
+@supports not (--custom: property) {
+  .custom-property-fallback {
+    color: #2563eb; /* Fallback color */
+    background: #eff6ff; /* Fallback background */
+  }
+}
+
+/* Flexbox gap fallbacks */
+@supports not (gap: 1rem) {
+  .flex-gap-fallback > * + * {
+    margin-left: var(--space-4);
+  }
+  
+  .flex-column-gap-fallback > * + * {
+    margin-top: var(--space-4);
+    margin-left: 0;
+  }
+}
+
+/* ========================================
+   Experimental Features
+   ======================================== */
+
+/* CSS Toggles (experimental) */
+@supports (toggle-root: lightbox) {
+  .toggle-demo {
+    toggle-root: lightbox;
+    
+    &:toggle(lightbox) {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: var(--z-modal);
+    }
+  }
+}
+
+/* CSS Conditional Rules */
+@when supports(display: grid) and media(min-width: 768px) {
+  .conditional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* ========================================
+   Performance Utilities
+   ======================================== */
+
+/* Lazy loading optimization */
+.lazy-load {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
+}
+
+/* GPU optimization */
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform;
+  isolation: isolate;
+}
+
+/* Render optimization */
+.render-optimized {
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+/* Memory optimization */
+.memory-optimized {
+  contain: size layout style paint;
+  content-visibility: auto;
+}

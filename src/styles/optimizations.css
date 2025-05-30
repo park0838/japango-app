@@ -1,0 +1,442 @@
+/* ========================================
+   🚀 JapanGo - Performance & Code Optimizations
+   성능 최적화 및 코드 중복 제거
+   ======================================== */
+
+/* ========================================
+   1. 중복 애니메이션 통합
+   ======================================== */
+
+/* Fade In Up 애니메이션 통합 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 모든 컴포넌트에서 동일하게 사용할 수 있는 클래스 */
+.fade-in-up {
+  animation: fadeInUp var(--duration-300) var(--ease-out);
+}
+
+.fade-in-up-delayed {
+  animation: fadeInUp var(--duration-300) var(--ease-out) var(--duration-200) both;
+}
+
+/* ========================================
+   2. 공통 카드 스타일 최적화
+   ======================================== */
+
+/* 모든 카드 컴포넌트의 공통 베이스 */
+.card-base {
+  background: var(--color-bg-elevated);
+  border: var(--border-1) solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  
+  /* 성능 최적화 */
+  contain: layout style;
+  transform: translateZ(0);
+}
+
+.card-base:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--color-border-default);
+}
+
+/* Glass morphism 효과 통합 */
+.glass-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.dark-theme .glass-effect::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+/* ========================================
+   3. 로딩 상태 통합
+   ======================================== */
+
+.loading-base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: var(--space-20);
+  text-align: center;
+  min-height: 60vh;
+  animation: fadeIn var(--duration-300) var(--ease-out);
+}
+
+.spinner-base {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border-light);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* ========================================
+   4. 그라데이션 텍스트 통합
+   ======================================== */
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* 폴백 */
+  color: var(--color-primary);
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 50%,
+    var(--color-primary-hover) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 4s ease-in-out infinite;
+  
+  /* 폴백 */
+  color: var(--color-primary);
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ========================================
+   5. 인터랙션 효과 통합
+   ======================================== */
+
+/* 리프트 효과 */
+.lift-effect {
+  transition: transform var(--duration-200) var(--ease-out), 
+              box-shadow var(--duration-200) var(--ease-out);
+}
+
+.lift-effect:hover {
+  transform: translateY(-4px);
+}
+
+.lift-effect:active {
+  transform: translateY(-2px);
+}
+
+/* 스케일 효과 */
+.scale-effect {
+  transition: transform var(--duration-200) var(--ease-out);
+}
+
+.scale-effect:hover {
+  transform: scale(1.05);
+}
+
+.scale-effect:active {
+  transform: scale(1.02);
+}
+
+/* 글로우 효과 */
+.glow-effect {
+  transition: box-shadow var(--duration-300) var(--ease-out);
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+/* ========================================
+   6. 일본어 텍스트 최적화
+   ======================================== */
+
+.japanese-text-optimized {
+  font-family: var(--font-japanese);
+  font-feature-settings: "palt" 1, "pkna" 1, "jp78" 1;
+  font-variant-east-asian: proportional-width;
+  line-height: var(--leading-relaxed);
+  
+  /* 텍스트 렌더링 최적화 */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.korean-text-optimized {
+  font-family: var(--font-korean);
+  line-height: var(--leading-normal);
+  word-break: keep-all;
+  
+  /* 한글 최적화 */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   7. 스태거 애니메이션 최적화
+   ======================================== */
+
+.stagger-container {
+  --stagger-delay: 100ms;
+  --stagger-duration: var(--duration-300);
+}
+
+.stagger-item {
+  animation: fadeInUp var(--stagger-duration) var(--ease-out) both;
+  animation-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+}
+
+/* JavaScript에서 --stagger-index를 설정 */
+.stagger-item:nth-child(1) { --stagger-index: 0; }
+.stagger-item:nth-child(2) { --stagger-index: 1; }
+.stagger-item:nth-child(3) { --stagger-index: 2; }
+.stagger-item:nth-child(4) { --stagger-index: 3; }
+.stagger-item:nth-child(5) { --stagger-index: 4; }
+.stagger-item:nth-child(6) { --stagger-index: 5; }
+
+/* ========================================
+   8. 포커스 관리 통합
+   ======================================== */
+
+.focus-ring {
+  outline: none;
+  position: relative;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* 커스텀 포커스 링 */
+.focus-ring-custom::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity var(--duration-200) var(--ease-out);
+  pointer-events: none;
+}
+
+.focus-ring-custom:focus-visible::after {
+  opacity: 1;
+}
+
+/* ========================================
+   9. 반응형 유틸리티 최적화
+   ======================================== */
+
+/* 컨테이너 쿼리 기반 반응형 */
+@container card (max-width: 300px) {
+  .responsive-text {
+    font-size: var(--text-sm);
+  }
+  
+  .responsive-padding {
+    padding: var(--space-4);
+  }
+}
+
+@container card (min-width: 400px) {
+  .responsive-text {
+    font-size: var(--text-base);
+  }
+  
+  .responsive-padding {
+    padding: var(--space-6);
+  }
+}
+
+/* ========================================
+   10. 성능 최적화 클래스
+   ======================================== */
+
+/* GPU 레이어 생성 */
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform;
+  isolation: isolate;
+}
+
+/* 레이아웃 최적화 */
+.layout-optimized {
+  contain: layout style paint;
+}
+
+/* 텍스트 최적화 */
+.text-optimized {
+  contain: style;
+  text-rendering: optimizeSpeed;
+}
+
+/* 이미지 최적화 */
+.image-optimized {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 200px;
+}
+
+/* ========================================
+   11. 다크모드 최적화
+   ======================================== */
+
+.theme-transition {
+  transition: 
+    background-color var(--duration-300) var(--ease-out),
+    color var(--duration-300) var(--ease-out),
+    border-color var(--duration-300) var(--ease-out);
+}
+
+/* 다크모드 그림자 최적화 */
+.dark-theme .shadow-dark {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.4),
+    0 4px 6px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   12. 모바일 최적화
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* 모바일에서 복잡한 애니메이션 간소화 */
+  .mobile-simple {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .mobile-simple:hover {
+    transform: none !important;
+  }
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .touch-optimized {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-4);
+  }
+  
+  .touch-optimized:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   13. 프린트 최적화
+   ======================================== */
+
+@media print {
+  .print-hide {
+    display: none !important;
+  }
+  
+  .print-show {
+    display: block !important;
+  }
+  
+  .print-optimized {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid black !important;
+  }
+}
+
+/* ========================================
+   14. 접근성 최적화
+   ======================================== */
+
+/* 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .motion-safe:hover,
+  .motion-safe:focus {
+    transform: none !important;
+  }
+}
+
+/* 고대비 모드 */
+@media (prefers-contrast: high) {
+  .high-contrast {
+    border: var(--border-2) solid currentColor !important;
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+}
+
+/* ========================================
+   15. 메모리 및 성능 최적화
+   ======================================== */
+
+/* 메모리 효율적인 애니메이션 */
+.memory-efficient {
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 100px;
+}
+
+/* 지연 로딩 최적화 */
+.lazy-load {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 300px;
+}
+
+/* 무한 스크롤 최적화 */
+.infinite-scroll-item {
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* 렌더링 최적화 */
+.render-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
