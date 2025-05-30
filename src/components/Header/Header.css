@@ -1,0 +1,703 @@
+/* ========================================
+   🧭 Header - Modern Navigation Component
+   현대적이고 우아한 내비게이션 헤더
+   ======================================== */
+
+.app-header {
+  /* Layout */
+  position: sticky;
+  top: 0;
+  z-index: var(--z-fixed);
+  width: 100%;
+  
+  /* Visual */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: var(--border-1) solid var(--color-border-light);
+  
+  /* Interaction */
+  transition: var(--transition-base);
+  
+  /* Modern glass effect */
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+    0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  
+  animation: headerSlideDown 0.6s ease-out;
+}
+
+@keyframes headerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark theme adjustments */
+.dark-theme .app-header {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom-color: var(--color-border-light);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.02) inset,
+    0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Scrolled state */
+.app-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-lg);
+  border-bottom-color: var(--color-border-default);
+}
+
+.dark-theme .app-header.scrolled {
+  background: rgba(15, 23, 42, 0.98);
+}
+
+/* ========================================
+   Header Content Container
+   ======================================== */
+
+.header-content {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-8);
+  position: relative;
+  min-height: 70px;
+}
+
+/* Modern decorative element */
+.header-content::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-primary) 50%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+  transition: var(--transition-base);
+}
+
+.app-header:hover .header-content::after {
+  width: 100px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   Logo Component
+   ======================================== */
+
+.logo {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  
+  /* Typography */
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  
+  /* Visual */
+  color: var(--color-text-primary);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  
+  /* Interaction */
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo background effect */
+.logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    var(--color-primary-lighter) 0%, 
+    var(--color-secondary-light) 100%
+  );
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition-base);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  color: var(--color-primary);
+}
+
+.logo:hover::before {
+  opacity: 0.1;
+  transform: scale(1);
+}
+
+.logo:active {
+  transform: translateY(-1px);
+}
+
+/* Logo emoji */
+.logo-emoji {
+  font-size: 2rem;
+  display: inline-block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  
+  /* Subtle breathing animation */
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-2px) rotate(-2deg); 
+  }
+  75% { 
+    transform: translateY(-2px) rotate(2deg); 
+  }
+}
+
+/* Logo text */
+.logo-text {
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%, 
+    var(--color-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: var(--tracking-tight);
+  
+  /* Fallback for browsers that don't support background-clip */
+  color: var(--color-primary);
+}
+
+/* ========================================
+   Main Navigation
+   ======================================== */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ========================================
+   Navigation Links
+   ======================================== */
+
+.nav-link {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  
+  /* Typography */
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  line-height: var(--leading-none);
+  
+  /* Visual */
+  border-radius: var(--radius-lg);
+  position: relative;
+  
+  /* Interaction */
+  transition: var(--transition-base);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Nav link background effect */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg-surface);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition-base);
+  border-radius: inherit;
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-link:active {
+  transform: translateY(0);
+}
+
+/* Active state */
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  background: var(--color-primary-lighter);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  
+  animation: activeIndicator 0.3s ease-out;
+}
+
+@keyframes activeIndicator {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 24px;
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Theme Toggle Button
+   ======================================== */
+
+.theme-toggle {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  
+  /* Visual */
+  background: var(--color-bg-surface);
+  border: var(--border-1) solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-secondary);
+  
+  /* Typography */
+  font-size: 1.25rem;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Theme toggle background effect */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    var(--color-primary-lighter) 0%, 
+    var(--color-secondary-light) 100%
+  );
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition-base);
+  border-radius: inherit;
+}
+
+.theme-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px) rotate(180deg);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:hover::before {
+  opacity: 0.1;
+  transform: scale(1);
+}
+
+.theme-toggle:active {
+  transform: translateY(-1px) rotate(180deg) scale(0.95);
+}
+
+/* Theme icon animation */
+.theme-toggle .theme-icon {
+  transition: var(--transition-base);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* ========================================
+   Mobile Menu Toggle
+   ======================================== */
+
+.mobile-menu-toggle {
+  /* Hidden by default on desktop */
+  display: none;
+  
+  /* Layout */
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  
+  /* Visual */
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--color-bg-surface);
+}
+
+.mobile-menu-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Hamburger menu icon */
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: var(--transition-base);
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+.menu-icon::before {
+  top: -8px;
+}
+
+.menu-icon::after {
+  bottom: -8px;
+}
+
+/* Active menu state */
+.mobile-menu-toggle.active .menu-icon {
+  background: transparent;
+}
+
+.mobile-menu-toggle.active .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.mobile-menu-toggle.active .menu-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .header-content {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-6);
+  }
+  
+  .nav-link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+  
+  .logo {
+    font-size: var(--text-lg);
+  }
+  
+  .logo-emoji {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-4);
+  }
+  
+  .header-content::after {
+    display: none;
+  }
+  
+  /* Hide desktop navigation */
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    
+    /* Layout */
+    flex-direction: column;
+    padding: var(--space-6);
+    gap: var(--space-2);
+    
+    /* Visual */
+    background: var(--color-bg-elevated);
+    border: var(--border-1) solid var(--color-border-light);
+    border-top: none;
+    border-bottom-left-radius: var(--radius-2xl);
+    border-bottom-right-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    
+    /* Animation */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--duration-300) var(--ease-out);
+  }
+  
+  .dark-theme .main-nav {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-border-light);
+  }
+  
+  /* Mobile menu open state */
+  .main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Mobile navigation links */
+  .nav-link {
+    width: 100%;
+    padding: var(--space-4) var(--space-6);
+    justify-content: center;
+    text-align: center;
+    font-size: var(--text-base);
+    border-radius: var(--radius-xl);
+  }
+  
+  .nav-link::before {
+    display: none;
+  }
+  
+  .nav-link.active::after {
+    bottom: var(--space-2);
+    width: 32px;
+  }
+  
+  .nav-link:hover {
+    background: var(--color-bg-surface);
+    transform: translateY(-2px);
+  }
+  
+  /* Mobile theme toggle */
+  .theme-toggle {
+    width: 100%;
+    margin-top: var(--space-4);
+    padding: var(--space-4);
+    justify-content: center;
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-xl);
+  }
+  
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: var(--space-2) var(--space-3);
+    min-height: 60px;
+  }
+  
+  .logo {
+    font-size: var(--text-base);
+    gap: var(--space-2);
+  }
+  
+  .logo-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .main-nav {
+    padding: var(--space-4);
+  }
+  
+  .nav-link {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+  }
+  
+  .theme-toggle {
+    padding: var(--space-3);
+    font-size: 1.125rem;
+  }
+}
+
+/* ========================================
+   Accessibility & Motion Preferences
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header,
+  .logo-emoji,
+  .nav-link,
+  .theme-toggle,
+  .mobile-menu-toggle,
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .logo:hover,
+  .nav-link:hover,
+  .theme-toggle:hover {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .app-header {
+    border-bottom-width: var(--border-2);
+    backdrop-filter: none;
+    background: var(--color-bg-base);
+  }
+  
+  .nav-link,
+  .theme-toggle {
+    border: var(--border-1) solid var(--color-border-default);
+  }
+  
+  .logo-text {
+    -webkit-text-fill-color: var(--color-text-primary);
+    background: none;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .app-header {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border-bottom: var(--border-1) solid var(--color-border-default);
+    backdrop-filter: none;
+  }
+  
+  .theme-toggle,
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .header-content::after {
+    display: none;
+  }
+  
+  .logo-emoji {
+    animation: none;
+  }
+}
+
+/* ========================================
+   Focus Management
+   ======================================== */
+
+.nav-link:focus-visible,
+.theme-toggle:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.logo:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for accessibility */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: var(--space-4);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  z-index: var(--z-maximum);
+  transition: var(--transition-base);
+}
+
+.skip-to-main:focus {
+  top: var(--space-4);
+}
+
+/* ========================================
+   JavaScript Mobile Menu State
+   ======================================== */
+
+/* When mobile menu is open, prevent body scroll */
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu-open .app-header {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Add backdrop when mobile menu is open */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-base);
+}
+
+.mobile-menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}

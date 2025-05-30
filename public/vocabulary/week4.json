@@ -1,0 +1,546 @@
+{
+  "week": 4,
+  "totalWords": 90,
+  "words": [
+    {
+      "id": 1,
+      "kanji": "日課",
+      "korean": "일과",
+      "hiragana": "にっか"
+    },
+    {
+      "id": 2,
+      "kanji": "二倍",
+      "korean": "두 배",
+      "hiragana": "にばい"
+    },
+    {
+      "id": 3,
+      "kanji": "値段",
+      "korean": "값, 가격",
+      "hiragana": "ねだん"
+    },
+    {
+      "id": 4,
+      "kanji": "熱演",
+      "korean": "열연",
+      "hiragana": "ねつえん"
+    },
+    {
+      "id": 5,
+      "kanji": "熱帯",
+      "korean": "열대",
+      "hiragana": "ねったい"
+    },
+    {
+      "id": 6,
+      "kanji": "年齢",
+      "korean": "나이, 연령",
+      "hiragana": "ねんれい"
+    },
+    {
+      "id": 7,
+      "kanji": "農業",
+      "korean": "농업",
+      "hiragana": "のうぎょう"
+    },
+    {
+      "id": 8,
+      "kanji": "農産物",
+      "korean": "농산물",
+      "hiragana": "のうさんぶつ"
+    },
+    {
+      "id": 9,
+      "kanji": "配布",
+      "korean": "배포",
+      "hiragana": "はいふ"
+    },
+    {
+      "id": 10,
+      "kanji": "爆発",
+      "korean": "폭발",
+      "hiragana": "ばくはつ"
+    },
+    {
+      "id": 11,
+      "kanji": "箱",
+      "korean": "상자",
+      "hiragana": "はこ"
+    },
+    {
+      "id": 12,
+      "kanji": "発射",
+      "korean": "발사",
+      "hiragana": "はっしゃ"
+    },
+    {
+      "id": 13,
+      "kanji": "犯罪",
+      "korean": "범죄",
+      "hiragana": "はんざい"
+    },
+    {
+      "id": 14,
+      "kanji": "反対",
+      "korean": "반대",
+      "hiragana": "はんたい"
+    },
+    {
+      "id": 15,
+      "kanji": "判断",
+      "korean": "판단",
+      "hiragana": "はんだん"
+    },
+    {
+      "id": 16,
+      "kanji": "販売",
+      "korean": "판매",
+      "hiragana": "はんばい"
+    },
+    {
+      "id": 17,
+      "kanji": "被害",
+      "korean": "피해",
+      "hiragana": "ひがい"
+    },
+    {
+      "id": 18,
+      "kanji": "光",
+      "korean": "빛",
+      "hiragana": "ひかり"
+    },
+    {
+      "id": 19,
+      "kanji": "悲劇",
+      "korean": "비극",
+      "hiragana": "ひげき"
+    },
+    {
+      "id": 20,
+      "kanji": "筆跡",
+      "korean": "필적(글씨체)",
+      "hiragana": "ひっせき"
+    },
+    {
+      "id": 21,
+      "kanji": "皮膚",
+      "korean": "피부",
+      "hiragana": "ひふ"
+    },
+    {
+      "id": 22,
+      "kanji": "秒",
+      "korean": "초(시간 단위)",
+      "hiragana": "びょう"
+    },
+    {
+      "id": 23,
+      "kanji": "評価",
+      "korean": "평가",
+      "hiragana": "ひょうか"
+    },
+    {
+      "id": 24,
+      "kanji": "評判",
+      "korean": "평판",
+      "hiragana": "ひょうばん"
+    },
+    {
+      "id": 25,
+      "kanji": "服装",
+      "korean": "복장",
+      "hiragana": "ふくそう"
+    },
+    {
+      "id": 26,
+      "kanji": "平均",
+      "korean": "평균",
+      "hiragana": "へいきん"
+    },
+    {
+      "id": 27,
+      "kanji": "放送局",
+      "korean": "방송국",
+      "hiragana": "ほうそうきょく"
+    },
+    {
+      "id": 28,
+      "kanji": "募集",
+      "korean": "모집",
+      "hiragana": "ぼしゅう"
+    },
+    {
+      "id": 29,
+      "kanji": "実り",
+      "korean": "결실, 수확",
+      "hiragana": "みのり"
+    },
+    {
+      "id": 30,
+      "kanji": "目的",
+      "korean": "목적",
+      "hiragana": "もくてき"
+    },
+    {
+      "id": 31,
+      "kanji": "役目",
+      "korean": "역할",
+      "hiragana": "やくめ"
+    },
+    {
+      "id": 32,
+      "kanji": "夜中",
+      "korean": "한밤중",
+      "hiragana": "よなか"
+    },
+    {
+      "id": 33,
+      "kanji": "流行",
+      "korean": "유행",
+      "hiragana": "りゅうこう"
+    },
+    {
+      "id": 34,
+      "kanji": "例外",
+      "korean": "예외",
+      "hiragana": "れいがい"
+    },
+    {
+      "id": 35,
+      "kanji": "列島",
+      "korean": "열도",
+      "hiragana": "れっとう"
+    },
+    {
+      "id": 36,
+      "kanji": "連絡",
+      "korean": "연락",
+      "hiragana": "れんらく"
+    },
+    {
+      "id": 37,
+      "kanji": "論文",
+      "korean": "논문",
+      "hiragana": "ろんぶん"
+    },
+    {
+      "id": 38,
+      "kanji": "標識",
+      "korean": "표지",
+      "hiragana": "ひょうしき"
+    },
+    {
+      "id": 39,
+      "kanji": "封筒",
+      "korean": "봉투",
+      "hiragana": "ふうとう"
+    },
+    {
+      "id": 40,
+      "kanji": "舞台",
+      "korean": "무대",
+      "hiragana": "ぶたい"
+    },
+    {
+      "id": 41,
+      "kanji": "貿易",
+      "korean": "무역",
+      "hiragana": "ぼうえき"
+    },
+    {
+      "id": 42,
+      "kanji": "法律",
+      "korean": "법률",
+      "hiragana": "ほうりつ"
+    },
+    {
+      "id": 43,
+      "kanji": "万一",
+      "korean": "만일, 만약",
+      "hiragana": "まんいち"
+    },
+    {
+      "id": 44,
+      "kanji": "未来",
+      "korean": "미래",
+      "hiragana": "みらい"
+    },
+    {
+      "id": 45,
+      "kanji": "物語",
+      "korean": "이야기",
+      "hiragana": "ものがたり"
+    },
+    {
+      "id": 46,
+      "kanji": "家賃",
+      "korean": "집세",
+      "hiragana": "やちん"
+    },
+    {
+      "id": 47,
+      "kanji": "予防",
+      "korean": "예방",
+      "hiragana": "よぼう"
+    },
+    {
+      "id": 48,
+      "kanji": "両替",
+      "korean": "환전",
+      "hiragana": "りょうがえ"
+    },
+    {
+      "id": 49,
+      "kanji": "冷凍",
+      "korean": "냉동",
+      "hiragana": "れいとう"
+    },
+    {
+      "id": 50,
+      "kanji": "恋愛",
+      "korean": "연애",
+      "hiragana": "れんあい"
+    },
+    {
+      "id": 51,
+      "kanji": "老人",
+      "korean": "노인",
+      "hiragana": "ろうじん"
+    },
+    {
+      "id": 52,
+      "kanji": "割合",
+      "korean": "비율",
+      "hiragana": "わりあい"
+    },
+    {
+      "id": 53,
+      "kanji": "平等",
+      "korean": "평등",
+      "hiragana": "びょうどう"
+    },
+    {
+      "id": 54,
+      "kanji": "普及",
+      "korean": "보급",
+      "hiragana": "ふきゅう"
+    },
+    {
+      "id": 55,
+      "kanji": "分野",
+      "korean": "분야",
+      "hiragana": "ぶんや"
+    },
+    {
+      "id": 56,
+      "kanji": "方針",
+      "korean": "방침",
+      "hiragana": "ほうしん"
+    },
+    {
+      "id": 57,
+      "kanji": "星",
+      "korean": "별",
+      "hiragana": "ほし"
+    },
+    {
+      "id": 58,
+      "kanji": "満足感",
+      "korean": "만족감",
+      "hiragana": "まんぞくかん"
+    },
+    {
+      "id": 59,
+      "kanji": "虫",
+      "korean": "벌레",
+      "hiragana": "むし"
+    },
+    {
+      "id": 60,
+      "kanji": "約束",
+      "korean": "약속",
+      "hiragana": "やくそく"
+    },
+    {
+      "id": 61,
+      "kanji": "優勝",
+      "korean": "우승",
+      "hiragana": "ゆうしょう"
+    },
+    {
+      "id": 62,
+      "kanji": "留学생",
+      "korean": "유학생",
+      "hiragana": "りゅうがくせい"
+    },
+    {
+      "id": 63,
+      "kanji": "両国",
+      "korean": "양국",
+      "hiragana": "りょうこく"
+    },
+    {
+      "id": 64,
+      "kanji": "歴史",
+      "korean": "역사",
+      "hiragana": "れきし"
+    },
+    {
+      "id": 65,
+      "kanji": "労働",
+      "korean": "노동",
+      "hiragana": "ろうどう"
+    },
+    {
+      "id": 66,
+      "kanji": "割引",
+      "korean": "할인",
+      "hiragana": "わりびき"
+    },
+    {
+      "id": 67,
+      "kanji": "与える",
+      "korean": "주다, 부여하다",
+      "hiragana": "あたえる"
+    },
+    {
+      "id": 68,
+      "kanji": "祈る",
+      "korean": "빌다, 기도하다",
+      "hiragana": "いのる"
+    },
+    {
+      "id": 69,
+      "kanji": "映る",
+      "korean": "비치다, 나타나다",
+      "hiragana": "うつる"
+    },
+    {
+      "id": 70,
+      "kanji": "恐れる",
+      "korean": "두려워하다",
+      "hiragana": "おそれる"
+    },
+    {
+      "id": 71,
+      "kanji": "返す",
+      "korean": "돌려주다, 갚다",
+      "hiragana": "かえす"
+    },
+    {
+      "id": 72,
+      "kanji": "重ねる",
+      "korean": "겹치다, 반복하다",
+      "hiragana": "かさねる"
+    },
+    {
+      "id": 73,
+      "kanji": "暮す",
+      "korean": "살다, 생활하다",
+      "hiragana": "くらす"
+    },
+    {
+      "id": 74,
+      "kanji": "異なる",
+      "korean": "다르다",
+      "hiragana": "ことなる"
+    },
+    {
+      "id": 75,
+      "kanji": "沈む",
+      "korean": "가라앉다, 지다",
+      "hiragana": "しずむ"
+    },
+    {
+      "id": 76,
+      "kanji": "余る",
+      "korean": "남다",
+      "hiragana": "あまる"
+    },
+    {
+      "id": 77,
+      "kanji": "浮く",
+      "korean": "뜨다",
+      "hiragana": "うく"
+    },
+    {
+      "id": 78,
+      "kanji": "置く",
+      "korean": "두다",
+      "hiragana": "おく"
+    },
+    {
+      "id": 79,
+      "kanji": "覚える",
+      "korean": "외우다, 기억하다",
+      "hiragana": "おぼえる"
+    },
+    {
+      "id": 80,
+      "kanji": "抱える",
+      "korean": "안다, 끌어안다",
+      "hiragana": "かかえる"
+    },
+    {
+      "id": 81,
+      "kanji": "決まる",
+      "korean": "정해지다",
+      "hiragana": "きまる"
+    },
+    {
+      "id": 82,
+      "kanji": "比べる",
+      "korean": "비교하다",
+      "hiragana": "くらべる"
+    },
+    {
+      "id": 83,
+      "kanji": "断る",
+      "korean": "거절하다",
+      "hiragana": "ことわる"
+    },
+    {
+      "id": 84,
+      "kanji": "占める",
+      "korean": "차지하다",
+      "hiragana": "しめる"
+    },
+    {
+      "id": 85,
+      "kanji": "改める",
+      "korean": "고치다, 바로잡다",
+      "hiragana": "あらためる"
+    },
+    {
+      "id": 86,
+      "kanji": "受ける",
+      "korean": "받다",
+      "hiragana": "うける"
+    },
+    {
+      "id": 87,
+      "kanji": "怒る",
+      "korean": "화내다",
+      "hiragana": "おこる"
+    },
+    {
+      "id": 88,
+      "kanji": "折る",
+      "korean": "꺾다, 접다",
+      "hiragana": "おる"
+    },
+    {
+      "id": 89,
+      "kanji": "囲む",
+      "korean": "둘러싸다",
+      "hiragana": "かこむ"
+    },
+    {
+      "id": 90,
+      "kanji": "配る",
+      "korean": "나누다, 분배하다",
+      "hiragana": "くばる"
+    }
+  ]
+}

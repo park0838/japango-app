@@ -1,25 +1,58 @@
-export interface VocabItem {
-  id: number;            // 단어 ID
-  kanji: string;         // 일본어 단어 (한자)
-  korean: string;        // 의미 (한국어)
-  hiragana: string;      // 읽는 법 (히라가나)
-  week?: number;         // 주차 (1, 2, 3, 4...)
+// 단어 타입 정의
+export interface VocabWord {
+  id: number;
+  kanji: string;
+  korean: string;
+  hiragana: string;
 }
 
+// 주차 데이터 타입
 export interface WeekData {
   week: number;
   totalWords: number;
-  words: VocabItem[];
+  words: VocabWord[];
 }
 
-export enum TestModeType {
-  MEANING = 'meaning', // 의미 테스트 (단어 → 의미)
-  READING = 'reading', // 발음 테스트 (단어 → 히라가나)
-}
-
+// 테스트 결과 타입
 export interface TestResult {
-  vocabItem: VocabItem;
-  isCorrect: boolean;
+  date: string;
+  score: number;
+  total: number;
+  percentage: number;
+  questionTypes: string[];
+}
+
+// 틀린 답안 타입
+export interface WrongAnswer {
+  word: VocabWord;
   userAnswer: string;
-  testMode: TestModeType;
+  correctAnswer: string;
+  week: number;
+  timestamp: number;
+}
+
+// 학습 진행률 타입
+export interface StudyProgress {
+  week: number;
+  studiedWords: number;
+  totalWords: number;
+  lastStudied: string;
+}
+
+// 통계 타입
+export interface WeekStats {
+  studyProgress: number;
+  studiedToday: number;
+  bestScore: number;
+  testResults: TestResult[];
+  lastStudied?: string;
+}
+
+// 전체 통계 타입
+export interface TotalStats {
+  totalStudied: number;
+  averageScore: number;
+  totalTests: number;
+  studyStreak: number;
+  wrongAnswersCount: number;
 }

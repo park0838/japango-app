@@ -1,0 +1,425 @@
+/* ========================================
+   🇯🇵 JapanGo - Modern Design System
+   모던하고 세련된 일본어 암기 앱 디자인
+   ======================================== */
+
+/* ========================================
+   1. Design Tokens - 디자인 토큰 시스템
+   ======================================== */
+
+:root {
+  /* 🎨 Color Palette - 일본 문화 기반 현대적 컬러 */
+  
+  /* Primary Colors - 사쿠라 테마 */
+  --sakura-50: #fef7f7;
+  --sakura-100: #fee2e5;
+  --sakura-200: #fdcad1;
+  --sakura-300: #fca5b0;
+  --sakura-400: #f97383;
+  --sakura-500: #f14458; /* Main brand color */
+  --sakura-600: #de2339;
+  --sakura-700: #bc1a2e;
+  --sakura-800: #9d192b;
+  --sakura-900: #851a2a;
+  
+  /* Secondary Colors - 인디고 블루 */
+  --indigo-50: #eef2ff;
+  --indigo-100: #e0e7ff;
+  --indigo-200: #c7d2fe;
+  --indigo-300: #a5b4fc;
+  --indigo-400: #818cf8;
+  --indigo-500: #6366f1; /* Secondary brand */
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+  --indigo-800: #3730a3;
+  --indigo-900: #312e81;
+  
+  /* Accent Colors */
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-200: #a7f3d0;
+  --emerald-300: #6ee7b7;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981; /* Success */
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-800: #065f46;
+  --emerald-900: #064e3b;
+  
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b; /* Warning */
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
+  
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444; /* Error */
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+  
+  /* Neutral Colors - 현대적인 그레이 팔레트 */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --gray-950: #020617;
+  
+  /* ========================================
+     2. Semantic Color System - 의미론적 색상
+     ======================================== */
+  
+  /* Primary Brand Colors */
+  --color-primary: var(--sakura-500);
+  --color-primary-hover: var(--sakura-600);
+  --color-primary-active: var(--sakura-700);
+  --color-primary-light: var(--sakura-100);
+  --color-primary-lighter: var(--sakura-50);
+  
+  /* Secondary Colors */
+  --color-secondary: var(--indigo-500);
+  --color-secondary-hover: var(--indigo-600);
+  --color-secondary-light: var(--indigo-100);
+  
+  /* Status Colors */
+  --color-success: var(--emerald-500);
+  --color-success-hover: var(--emerald-600);
+  --color-success-light: var(--emerald-100);
+  
+  --color-warning: var(--amber-500);
+  --color-warning-hover: var(--amber-600);
+  --color-warning-light: var(--amber-100);
+  
+  --color-error: var(--red-500);
+  --color-error-hover: var(--red-600);
+  --color-error-light: var(--red-100);
+  
+  --color-info: var(--indigo-500);
+  --color-info-hover: var(--indigo-600);
+  --color-info-light: var(--indigo-100);
+  
+  /* Background Colors */
+  --color-bg-base: #ffffff;
+  --color-bg-surface: var(--gray-50);
+  --color-bg-elevated: #ffffff;
+  --color-bg-overlay: rgba(15, 23, 42, 0.8);
+  --color-bg-glass: rgba(255, 255, 255, 0.8);
+  
+  /* Text Colors */
+  --color-text-primary: var(--gray-900);
+  --color-text-secondary: var(--gray-600);
+  --color-text-tertiary: var(--gray-500);
+  --color-text-disabled: var(--gray-400);
+  --color-text-inverse: #ffffff;
+  --color-text-accent: var(--color-primary);
+  
+  /* Border Colors */
+  --color-border-light: var(--gray-200);
+  --color-border-default: var(--gray-300);
+  --color-border-strong: var(--gray-400);
+  --color-border-accent: var(--color-primary);
+  
+  /* ========================================
+     3. Spacing System - 8px 기반 간격 시스템
+     ======================================== */
+  
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0_5: 0.125rem;  /* 2px */
+  --space-1: 0.25rem;     /* 4px */
+  --space-1_5: 0.375rem;  /* 6px */
+  --space-2: 0.5rem;      /* 8px */
+  --space-2_5: 0.625rem;  /* 10px */
+  --space-3: 0.75rem;     /* 12px */
+  --space-3_5: 0.875rem;  /* 14px */
+  --space-4: 1rem;        /* 16px */
+  --space-5: 1.25rem;     /* 20px */
+  --space-6: 1.5rem;      /* 24px */
+  --space-7: 1.75rem;     /* 28px */
+  --space-8: 2rem;        /* 32px */
+  --space-9: 2.25rem;     /* 36px */
+  --space-10: 2.5rem;     /* 40px */
+  --space-11: 2.75rem;    /* 44px */
+  --space-12: 3rem;       /* 48px */
+  --space-14: 3.5rem;     /* 56px */
+  --space-16: 4rem;       /* 64px */
+  --space-20: 5rem;       /* 80px */
+  --space-24: 6rem;       /* 96px */
+  --space-28: 7rem;       /* 112px */
+  --space-32: 8rem;       /* 128px */
+  
+  /* ========================================
+     4. Typography System - 타이포그래피
+     ======================================== */
+  
+  /* Font Families */
+  --font-sans: 'Inter', 'Noto Sans KR', 'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-japanese: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+  --font-korean: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  
+  /* Font Sizes - Type Scale (Perfect Fourth) */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+  
+  /* Font Weights */
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* ========================================
+     5. Border & Radius System
+     ======================================== */
+  
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-base: 0.375rem; /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-3xl: 2rem;      /* 32px */
+  --radius-full: 9999px;
+  
+  /* Border Widths */
+  --border-0: 0;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-4: 4px;
+  --border-8: 8px;
+  
+  /* ========================================
+     6. Shadow System - 그림자 시스템
+     ======================================== */
+  
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  
+  /* Colored Shadows */
+  --shadow-primary: 0 10px 25px -5px rgba(241, 68, 88, 0.2);
+  --shadow-secondary: 0 10px 25px -5px rgba(99, 102, 241, 0.2);
+  --shadow-success: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+  --shadow-warning: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+  --shadow-error: 0 10px 25px -5px rgba(239, 68, 68, 0.2);
+  
+  /* ========================================
+     7. Animation & Transition System
+     ======================================== */
+  
+  /* Duration */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+  
+  /* Timing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  
+  /* Common Transitions */
+  --transition-fast: all var(--duration-150) var(--ease-out);
+  --transition-base: all var(--duration-200) var(--ease-out);
+  --transition-slow: all var(--duration-300) var(--ease-out);
+  --transition-colors: color var(--duration-150) var(--ease-out), background-color var(--duration-150) var(--ease-out), border-color var(--duration-150) var(--ease-out);
+  --transition-transform: transform var(--duration-200) var(--ease-out);
+  --transition-opacity: opacity var(--duration-200) var(--ease-out);
+  
+  /* ========================================
+     8. Layout & Grid System
+     ======================================== */
+  
+  /* Container Sizes */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Z-Index Scale */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-floating: 10;
+  --z-fixed: 20;
+  --z-overlay-backdrop: 30;
+  --z-overlay: 40;
+  --z-modal-backdrop: 50;
+  --z-modal: 60;
+  --z-popover: 70;
+  --z-tooltip: 80;
+  --z-notification: 90;
+  --z-maximum: 100;
+}
+
+/* ========================================
+   🌙 Dark Theme Variables
+   ======================================== */
+
+.dark-theme {
+  color-scheme: dark;
+  
+  /* Background Colors for Dark Mode */
+  --color-bg-base: var(--gray-950);
+  --color-bg-surface: var(--gray-900);
+  --color-bg-elevated: var(--gray-800);
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
+  --color-bg-glass: rgba(15, 23, 42, 0.8);
+  
+  /* Text Colors for Dark Mode */
+  --color-text-primary: var(--gray-50);
+  --color-text-secondary: var(--gray-300);
+  --color-text-tertiary: var(--gray-400);
+  --color-text-disabled: var(--gray-600);
+  --color-text-inverse: var(--gray-900);
+  
+  /* Border Colors for Dark Mode */
+  --color-border-light: var(--gray-800);
+  --color-border-default: var(--gray-700);
+  --color-border-strong: var(--gray-600);
+  
+  /* Adjusted Primary Colors for Dark Mode */
+  --color-primary: var(--sakura-400);
+  --color-primary-hover: var(--sakura-300);
+  --color-primary-active: var(--sakura-200);
+  --color-primary-light: var(--sakura-900);
+  --color-primary-lighter: var(--gray-900);
+  
+  /* Dark Mode Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.7);
+  
+  /* Dark Mode Colored Shadows */
+  --shadow-primary: 0 10px 25px -5px rgba(244, 114, 182, 0.3);
+  --shadow-secondary: 0 10px 25px -5px rgba(129, 140, 248, 0.3);
+}
+
+/* ========================================
+   Global Base Styles
+   ======================================== */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  transition: var(--transition-colors);
+  
+  /* 텍스트 렌더링 최적화 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-primary);
+}
+
+.dark-theme ::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* ========================================
+   Japanese Typography
+   ======================================== */
+
+.text-japanese {
+  font-family: var(--font-japanese);
+  font-feature-settings: "palt" 1, "pkna" 1;
+}
+
+.text-korean {
+  font-family: var(--font-korean);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+/* ========================================
+   Responsive Design Breakpoints
+   ======================================== */
+
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.7rem;
+    --text-sm: 0.8rem;
+    --text-base: 0.9rem;
+    --text-lg: 1rem;
+    --text-xl: 1.125rem;
+    --text-2xl: 1.25rem;
+    --text-3xl: 1.5rem;
+    --text-4xl: 1.875rem;
+    --text-5xl: 2.25rem;
+  }
+}

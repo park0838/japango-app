@@ -1,0 +1,546 @@
+{
+  "week": 5,
+  "totalWords": 90,
+  "words": [
+    {
+      "id": 1,
+      "kanji": "越える",
+      "korean": "넘다, 초과하다",
+      "hiragana": "こえる"
+    },
+    {
+      "id": 2,
+      "kanji": "刺す",
+      "korean": "찌르다",
+      "hiragana": "さす"
+    },
+    {
+      "id": 3,
+      "kanji": "調べる",
+      "korean": "조사하다",
+      "hiragana": "しらべる"
+    },
+    {
+      "id": 4,
+      "kanji": "背負う",
+      "korean": "짊어지다",
+      "hiragana": "せおう"
+    },
+    {
+      "id": 5,
+      "kanji": "倒れる",
+      "korean": "쓰러지다",
+      "hiragana": "たおれる"
+    },
+    {
+      "id": 6,
+      "kanji": "続く",
+      "korean": "계속되다",
+      "hiragana": "つづく"
+    },
+    {
+      "id": 7,
+      "kanji": "流す",
+      "korean": "흘리다, 흘려보내다",
+      "hiragana": "ながす"
+    },
+    {
+      "id": 8,
+      "kanji": "並ぶ",
+      "korean": "줄 서다",
+      "hiragana": "ならぶ"
+    },
+    {
+      "id": 9,
+      "kanji": "塗る",
+      "korean": "바르다",
+      "hiragana": "ぬる"
+    },
+    {
+      "id": 10,
+      "kanji": "昇る",
+      "korean": "오르다, 상승하다",
+      "hiragana": "のぼる"
+    },
+    {
+      "id": 11,
+      "kanji": "働く",
+      "korean": "일하다",
+      "hiragana": "はたらく"
+    },
+    {
+      "id": 12,
+      "kanji": "招く",
+      "korean": "초대하다",
+      "hiragana": "まねく"
+    },
+    {
+      "id": 13,
+      "kanji": "迎える",
+      "korean": "맞이하다",
+      "hiragana": "むかえる"
+    },
+    {
+      "id": 14,
+      "kanji": "戻す",
+      "korean": "되돌리다",
+      "hiragana": "もどす"
+    },
+    {
+      "id": 15,
+      "kanji": "雇う",
+      "korean": "고용하다",
+      "hiragana": "やとう"
+    },
+    {
+      "id": 16,
+      "kanji": "笑う",
+      "korean": "웃다",
+      "hiragana": "わらう"
+    },
+    {
+      "id": 17,
+      "kanji": "育つ",
+      "korean": "자라다, 성장하다",
+      "hiragana": "そだつ"
+    },
+    {
+      "id": 18,
+      "kanji": "耕す",
+      "korean": "갈다, 경작하다",
+      "hiragana": "たがやす"
+    },
+    {
+      "id": 19,
+      "kanji": "閉じる",
+      "korean": "닫다",
+      "hiragana": "とじる"
+    },
+    {
+      "id": 20,
+      "kanji": "眺める",
+      "korean": "바라보다",
+      "hiragana": "ながめる"
+    },
+    {
+      "id": 21,
+      "kanji": "似る",
+      "korean": "닮다",
+      "hiragana": "にる"
+    },
+    {
+      "id": 22,
+      "kanji": "残る",
+      "korean": "남다",
+      "hiragana": "のこる"
+    },
+    {
+      "id": 23,
+      "kanji": "乗り越える",
+      "korean": "극복하다, 넘어가다",
+      "hiragana": "のりこえる"
+    },
+    {
+      "id": 24,
+      "kanji": "減る",
+      "korean": "줄다, 감소하다",
+      "hiragana": "へる"
+    },
+    {
+      "id": 25,
+      "kanji": "守る",
+      "korean": "지키다",
+      "hiragana": "まもる"
+    },
+    {
+      "id": 26,
+      "kanji": "結ぶ",
+      "korean": "잇다, 맺다",
+      "hiragana": "むすぶ"
+    },
+    {
+      "id": 27,
+      "kanji": "求める",
+      "korean": "구하다, 요구하다",
+      "hiragana": "もとめる"
+    },
+    {
+      "id": 28,
+      "kanji": "破る",
+      "korean": "깨뜨리다, 찢다, 어기다",
+      "hiragana": "やぶる"
+    },
+    {
+      "id": 29,
+      "kanji": "備える",
+      "korean": "준비하다, 갖추다",
+      "hiragana": "そなえる"
+    },
+    {
+      "id": 30,
+      "kanji": "伝える",
+      "korean": "전하다",
+      "hiragana": "つたえる"
+    },
+    {
+      "id": 31,
+      "kanji": "届く",
+      "korean": "닿다, 도달하다",
+      "hiragana": "とどく"
+    },
+    {
+      "id": 32,
+      "kanji": "悩む",
+      "korean": "고민하다",
+      "hiragana": "なやむ"
+    },
+    {
+      "id": 33,
+      "kanji": "抜く",
+      "korean": "빼다, 뽑다",
+      "hiragana": "ぬく"
+    },
+    {
+      "id": 34,
+      "kanji": "述べる",
+      "korean": "말하다, 언급하다",
+      "hiragana": "のべる"
+    },
+    {
+      "id": 35,
+      "kanji": "運び去る",
+      "korean": "옮기다, 가지고 가다",
+      "hiragana": "はこびさる"
+    },
+    {
+      "id": 36,
+      "kanji": "掘る",
+      "korean": "파다",
+      "hiragana": "ほる"
+    },
+    {
+      "id": 37,
+      "kanji": "認める",
+      "korean": "인정하다, 깨닫다",
+      "hiragana": "みとめる"
+    },
+    {
+      "id": 38,
+      "kanji": "燃える",
+      "korean": "타다, 불타다",
+      "hiragana": "もえる"
+    },
+    {
+      "id": 39,
+      "kanji": "焼ける",
+      "korean": "구워지다, 타다",
+      "hiragana": "やける"
+    },
+    {
+      "id": 40,
+      "kanji": "渡す",
+      "korean": "건네다, 넘기다",
+      "hiragana": "わたす"
+    },
+    {
+      "id": 41,
+      "kanji": "温かい",
+      "korean": "따뜻한",
+      "hiragana": "あたたかい"
+    },
+    {
+      "id": 42,
+      "kanji": "偉い",
+      "korean": "위대한, 훌륭한",
+      "hiragana": "えらい"
+    },
+    {
+      "id": 43,
+      "kanji": "軽い",
+      "korean": "가벼운",
+      "hiragana": "かるい"
+    },
+    {
+      "id": 44,
+      "kanji": "寒い",
+      "korean": "추운",
+      "hiragana": "さむい"
+    },
+    {
+      "id": 45,
+      "kanji": "珍しい",
+      "korean": "드문, 희귀한",
+      "hiragana": "めずらしい"
+    },
+    {
+      "id": 46,
+      "kanji": "若い",
+      "korean": "어린, 젊은",
+      "hiragana": "わかい"
+    },
+    {
+      "id": 47,
+      "kanji": "言い難い",
+      "korean": "말하기 어려운",
+      "hiragana": "いいがたい"
+    },
+    {
+      "id": 48,
+      "kanji": "幼い",
+      "korean": "어린, 유치한",
+      "hiragana": "おさない"
+    },
+    {
+      "id": 49,
+      "kanji": "険しい",
+      "korean": "험한, 가파른",
+      "hiragana": "けわしい"
+    },
+    {
+      "id": 50,
+      "kanji": "鋭い",
+      "korean": "날카로운",
+      "hiragana": "するどい"
+    },
+    {
+      "id": 51,
+      "kanji": "優しい",
+      "korean": "친절한, 부드러운",
+      "hiragana": "やさしい"
+    },
+    {
+      "id": 52,
+      "kanji": "美しい",
+      "korean": "아름다운",
+      "hiragana": "うつくしい"
+    },
+    {
+      "id": 53,
+      "kanji": "賢い",
+      "korean": "똑똑한, 지혜로운",
+      "hiragana": "かしこい"
+    },
+    {
+      "id": 54,
+      "kanji": "細かい",
+      "korean": "세밀한, 작은",
+      "hiragana": "こまかい"
+    },
+    {
+      "id": 55,
+      "kanji": "深い",
+      "korean": "깊은",
+      "hiragana": "ふかい"
+    },
+    {
+      "id": 56,
+      "kanji": "良い",
+      "korean": "좋은",
+      "hiragana": "よい"
+    },
+    {
+      "id": 57,
+      "kanji": "案外だ",
+      "korean": "의외다",
+      "hiragana": "あんがいだ"
+    },
+    {
+      "id": 58,
+      "kanji": "簡単だ",
+      "korean": "간단하다",
+      "hiragana": "かんたんだ"
+    },
+    {
+      "id": 59,
+      "kanji": "厳重だ",
+      "korean": "엄격하다",
+      "hiragana": "げんじゅうだ"
+    },
+    {
+      "id": 60,
+      "kanji": "静かだ",
+      "korean": "조용하다",
+      "hiragana": "しずかだ"
+    },
+    {
+      "id": 61,
+      "kanji": "新鮮だ",
+      "korean": "신선하다",
+      "hiragana": "しんせんだ"
+    },
+    {
+      "id": 62,
+      "kanji": "単純だ",
+      "korean": "단순하다",
+      "hiragana": "たんじゅんだ"
+    },
+    {
+      "id": 63,
+      "kanji": "部分的だ",
+      "korean": "부분적이다",
+      "hiragana": "ぶぶんてきだ"
+    },
+    {
+      "id": 64,
+      "kanji": "面倒だ",
+      "korean": "번거롭다",
+      "hiragana": "めんどうだ"
+    },
+    {
+      "id": 65,
+      "kanji": "異状だ",
+      "korean": "이상하다",
+      "hiragana": "いじょうだ"
+    },
+    {
+      "id": 66,
+      "kanji": "逆だ",
+      "korean": "반대이다",
+      "hiragana": "ぎゃくだ"
+    },
+    {
+      "id": 67,
+      "kanji": "肯定的だ",
+      "korean": "긍정적이다",
+      "hiragana": "こうていてきだ"
+    },
+    {
+      "id": 68,
+      "kanji": "順調だ",
+      "korean": "순조롭다",
+      "hiragana": "じゅんちょうだ"
+    },
+    {
+      "id": 69,
+      "kanji": "全国的だ",
+      "korean": "전국적이다",
+      "hiragana": "ぜんこくてきだ"
+    },
+    {
+      "id": 70,
+      "kanji": "適切だ",
+      "korean": "적절하다",
+      "hiragana": "てきせつだ"
+    },
+    {
+      "id": 71,
+      "kanji": "豊富だ",
+      "korean": "풍부하다",
+      "hiragana": "ほうふだ"
+    },
+    {
+      "id": 72,
+      "kanji": "豊かだ",
+      "korean": "풍요롭다",
+      "hiragana": "ゆたかだ"
+    },
+    {
+      "id": 73,
+      "kanji": "主だ",
+      "korean": "주요하다",
+      "hiragana": "おもだ"
+    },
+    {
+      "id": 74,
+      "kanji": "急速だ",
+      "korean": "급속하다",
+      "hiragana": "きゅうそくだ"
+    },
+    {
+      "id": 75,
+      "kanji": "幸いだ",
+      "korean": "행운이다",
+      "hiragana": "さいわいだ"
+    },
+    {
+      "id": 76,
+      "kanji": "正直だ",
+      "korean": "정직하다",
+      "hiragana": "しょうじきだ"
+    },
+    {
+      "id": 77,
+      "kanji": "確だ",
+      "korean": "확실하다",
+      "hiragana": "たしかだ"
+    },
+    {
+      "id": 78,
+      "kanji": "不規則だ",
+      "korean": "불규칙하다",
+      "hiragana": "ふきそくだ"
+    },
+    {
+      "id": 79,
+      "kanji": "夢中だ",
+      "korean": "몰두하다",
+      "hiragana": "むちゅうだ"
+    },
+    {
+      "id": 80,
+      "kanji": "突然",
+      "korean": "갑자기",
+      "hiragana": "とつぜん"
+    },
+    {
+      "id": 81,
+      "kanji": "比較的",
+      "korean": "비교적",
+      "hiragana": "ひかくてき"
+    },
+    {
+      "id": 82,
+      "kanji": "荒い",
+      "korean": "거칠다",
+      "hiragana": "あらい"
+    },
+    {
+      "id": 83,
+      "kanji": "凍る",
+      "korean": "얼다",
+      "hiragana": "こおる"
+    },
+    {
+      "id": 84,
+      "kanji": "救う",
+      "korean": "구하다",
+      "hiragana": "すくう"
+    },
+    {
+      "id": 85,
+      "kanji": "領収書",
+      "korean": "영수증",
+      "hiragana": "りょうしゅうしょ"
+    },
+    {
+      "id": 86,
+      "kanji": "永久",
+      "korean": "영구",
+      "hiragana": "えいきゅう"
+    },
+    {
+      "id": 87,
+      "kanji": "在籍",
+      "korean": "재직",
+      "hiragana": "ざいせき"
+    },
+    {
+      "id": 88,
+      "kanji": "討論",
+      "korean": "토론",
+      "hiragana": "とうろん"
+    },
+    {
+      "id": 89,
+      "kanji": "好調",
+      "korean": "호조",
+      "hiragana": "こうちょう"
+    },
+    {
+      "id": 90,
+      "kanji": "便利",
+      "korean": "편리",
+      "hiragana": "べんり"
+    }
+  ]
+}

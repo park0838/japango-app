@@ -1,0 +1,546 @@
+{
+  "week": 6,
+  "totalWords": 90,
+  "words": [
+    {
+      "id": 1,
+      "kanji": "勝負",
+      "korean": "승부",
+      "hiragana": "しょうぶ"
+    },
+    {
+      "id": 2,
+      "kanji": "上昇",
+      "korean": "상승",
+      "hiragana": "じょうしょう"
+    },
+    {
+      "id": 3,
+      "kanji": "食欲",
+      "korean": "식욕",
+      "hiragana": "しょくよく"
+    },
+    {
+      "id": 4,
+      "kanji": "信頼",
+      "korean": "신뢰",
+      "hiragana": "しんらい"
+    },
+    {
+      "id": 5,
+      "kanji": "心臓",
+      "korean": "심장",
+      "hiragana": "しんぞう"
+    },
+    {
+      "id": 6,
+      "kanji": "実施",
+      "korean": "실시",
+      "hiragana": "じっし"
+    },
+    {
+      "id": 7,
+      "kanji": "実践",
+      "korean": "실천",
+      "hiragana": "じっせん"
+    },
+    {
+      "id": 8,
+      "kanji": "実現",
+      "korean": "실현",
+      "hiragana": "じつげん"
+    },
+    {
+      "id": 9,
+      "kanji": "悪化",
+      "korean": "악화",
+      "hiragana": "あっか"
+    },
+    {
+      "id": 10,
+      "kanji": "安定",
+      "korean": "안정",
+      "hiragana": "あんてい"
+    },
+    {
+      "id": 11,
+      "kanji": "圧力",
+      "korean": "압력",
+      "hiragana": "あつりょく"
+    },
+    {
+      "id": 12,
+      "kanji": "圧迫",
+      "korean": "압박",
+      "hiragana": "あっぱく"
+    },
+    {
+      "id": 13,
+      "kanji": "野望",
+      "korean": "야망",
+      "hiragana": "やぼう"
+    },
+    {
+      "id": 14,
+      "kanji": "養成",
+      "korean": "양성",
+      "hiragana": "ようせい"
+    },
+    {
+      "id": 15,
+      "kanji": "余裕",
+      "korean": "여유",
+      "hiragana": "よゆう"
+    },
+    {
+      "id": 16,
+      "kanji": "連携",
+      "korean": "연계, 협력",
+      "hiragana": "れんけい"
+    },
+    {
+      "id": 17,
+      "kanji": "連鎖",
+      "korean": "연쇄",
+      "hiragana": "れんさ"
+    },
+    {
+      "id": 18,
+      "kanji": "連帯",
+      "korean": "연대",
+      "hiragana": "れんたい"
+    },
+    {
+      "id": 19,
+      "kanji": "熱心",
+      "korean": "열심",
+      "hiragana": "ねっしん"
+    },
+    {
+      "id": 20,
+      "kanji": "熱中",
+      "korean": "열중",
+      "hiragana": "ねっちゅう"
+    },
+    {
+      "id": 21,
+      "kanji": "汚染",
+      "korean": "오염",
+      "hiragana": "おせん"
+    },
+    {
+      "id": 22,
+      "kanji": "誤解",
+      "korean": "오해",
+      "hiragana": "ごかい"
+    },
+    {
+      "id": 23,
+      "kanji": "完璧",
+      "korean": "완벽",
+      "hiragana": "かんぺき"
+    },
+    {
+      "id": 24,
+      "kanji": "外交",
+      "korean": "외교",
+      "hiragana": "がいこう"
+    },
+    {
+      "id": 25,
+      "kanji": "要素",
+      "korean": "요소",
+      "hiragana": "ようそ"
+    },
+    {
+      "id": 26,
+      "kanji": "優先",
+      "korean": "우선",
+      "hiragana": "ゆうせん"
+    },
+    {
+      "id": 27,
+      "kanji": "優秀",
+      "korean": "우수",
+      "hiragana": "ゆうしゅう"
+    },
+    {
+      "id": 28,
+      "kanji": "優勝",
+      "korean": "우승",
+      "hiragana": "ゆうしょう"
+    },
+    {
+      "id": 29,
+      "kanji": "憂鬱",
+      "korean": "우울",
+      "hiragana": "ゆううつ"
+    },
+    {
+      "id": 30,
+      "kanji": "運命",
+      "korean": "운명",
+      "hiragana": "うんめい"
+    },
+    {
+      "id": 31,
+      "kanji": "遠慮",
+      "korean": "원려, 사양",
+      "hiragana": "えんりょ"
+    },
+    {
+      "id": 32,
+      "kanji": "危機",
+      "korean": "위기",
+      "hiragana": "きき"
+    },
+    {
+      "id": 33,
+      "kanji": "偉大",
+      "korean": "위대",
+      "hiragana": "いだい"
+    },
+    {
+      "id": 34,
+      "kanji": "意欲",
+      "korean": "의욕",
+      "hiragana": "いよく"
+    },
+    {
+      "id": 35,
+      "kanji": "議論",
+      "korean": "의논, 논의",
+      "hiragana": "ぎろん"
+    },
+    {
+      "id": 36,
+      "kanji": "利益",
+      "korean": "이익",
+      "hiragana": "りえき"
+    },
+    {
+      "id": 37,
+      "kanji": "理論",
+      "korean": "이론",
+      "hiragana": "りろん"
+    },
+    {
+      "id": 38,
+      "kanji": "異常",
+      "korean": "이상",
+      "hiragana": "いじょう"
+    },
+    {
+      "id": 39,
+      "kanji": "移住",
+      "korean": "이주",
+      "hiragana": "いじゅう"
+    },
+    {
+      "id": 40,
+      "kanji": "引退",
+      "korean": "은퇴",
+      "hiragana": "いんたい"
+    },
+    {
+      "id": 41,
+      "kanji": "応援",
+      "korean": "응원",
+      "hiragana": "おうえん"
+    },
+    {
+      "id": 42,
+      "kanji": "意識",
+      "korean": "의식",
+      "hiragana": "いしき"
+    },
+    {
+      "id": 43,
+      "kanji": "一致",
+      "korean": "일치",
+      "hiragana": "いっち"
+    },
+    {
+      "id": 44,
+      "kanji": "因果",
+      "korean": "인과",
+      "hiragana": "いんが"
+    },
+    {
+      "id": 45,
+      "kanji": "印象",
+      "korean": "인상",
+      "hiragana": "いんしょう"
+    },
+    {
+      "id": 46,
+      "kanji": "認識",
+      "korean": "인식",
+      "hiragana": "にんしき"
+    },
+    {
+      "id": 47,
+      "kanji": "人材",
+      "korean": "인재",
+      "hiragana": "じんざい"
+    },
+    {
+      "id": 48,
+      "kanji": "人種",
+      "korean": "인종",
+      "hiragana": "じんしゅ"
+    },
+    {
+      "id": 49,
+      "kanji": "忍耐",
+      "korean": "인내",
+      "hiragana": "にんたい"
+    },
+    {
+      "id": 50,
+      "kanji": "日常",
+      "korean": "일상",
+      "hiragana": "にちじょう"
+    },
+    {
+      "id": 51,
+      "kanji": "一般",
+      "korean": "일반",
+      "hiragana": "いっぱん"
+    },
+    {
+      "id": 52,
+      "kanji": "一部",
+      "korean": "일부",
+      "hiragana": "いちぶ"
+    },
+    {
+      "id": 53,
+      "kanji": "一定",
+      "korean": "일정",
+      "hiragana": "いってい"
+    },
+    {
+      "id": 54,
+      "kanji": "自覚",
+      "korean": "자각",
+      "hiragana": "じかく"
+    },
+    {
+      "id": 55,
+      "kanji": "自立",
+      "korean": "자립",
+      "hiragana": "じりつ"
+    },
+    {
+      "id": 56,
+      "kanji": "自慢",
+      "korean": "자랑",
+      "hiragana": "じまん"
+    },
+    {
+      "id": 57,
+      "kanji": "資本",
+      "korean": "자본",
+      "hiragana": "しほん"
+    },
+    {
+      "id": 58,
+      "kanji": "自然",
+      "korean": "자연",
+      "hiragana": "しぜん"
+    },
+    {
+      "id": 59,
+      "kanji": "自由",
+      "korean": "자유",
+      "hiragana": "じゆう"
+    },
+    {
+      "id": 60,
+      "kanji": "自律",
+      "korean": "자율",
+      "hiragana": "じりつ"
+    },
+    {
+      "id": 61,
+      "kanji": "作業",
+      "korean": "작업",
+      "hiragana": "さぎょう"
+    },
+    {
+      "id": 62,
+      "kanji": "残業",
+      "korean": "잔업",
+      "hiragana": "ざんぎょう"
+    },
+    {
+      "id": 63,
+      "kanji": "長所",
+      "korean": "장점",
+      "hiragana": "ちょうしょ"
+    },
+    {
+      "id": 64,
+      "kanji": "障害",
+      "korean": "장애",
+      "hiragana": "しょうがい"
+    },
+    {
+      "id": 65,
+      "kanji": "財産",
+      "korean": "재산",
+      "hiragana": "ざいさん"
+    },
+    {
+      "id": 66,
+      "kanji": "再生",
+      "korean": "재생",
+      "hiragana": "さいせい"
+    },
+    {
+      "id": 67,
+      "kanji": "災害",
+      "korean": "재해",
+      "hiragana": "さいがい"
+    },
+    {
+      "id": 68,
+      "kanji": "材料",
+      "korean": "재료",
+      "hiragana": "ざいりょう"
+    },
+    {
+      "id": 69,
+      "kanji": "低下",
+      "korean": "저하",
+      "hiragana": "ていか"
+    },
+    {
+      "id": 70,
+      "kanji": "貯蓄",
+      "korean": "저축",
+      "hiragana": "ちょちく"
+    },
+    {
+      "id": 71,
+      "kanji": "節約",
+      "korean": "절약",
+      "hiragana": "せつやく"
+    },
+    {
+      "id": 72,
+      "kanji": "接触",
+      "korean": "접촉",
+      "hiragana": "せっしょく"
+    },
+    {
+      "id": 73,
+      "kanji": "正確",
+      "korean": "정확",
+      "hiragana": "せいかく"
+    },
+    {
+      "id": 74,
+      "kanji": "精神",
+      "korean": "정신",
+      "hiragana": "せいしん"
+    },
+    {
+      "id": 75,
+      "kanji": "政治",
+      "korean": "정치",
+      "hiragana": "せいじ"
+    },
+    {
+      "id": 76,
+      "kanji": "制限",
+      "korean": "제한",
+      "hiragana": "せいげん"
+    },
+    {
+      "id": 77,
+      "kanji": "制度",
+      "korean": "제도",
+      "hiragana": "せいど"
+    },
+    {
+      "id": 78,
+      "kanji": "提案",
+      "korean": "제안",
+      "hiragana": "ていあん"
+    },
+    {
+      "id": 79,
+      "kanji": "条件",
+      "korean": "조건",
+      "hiragana": "じょうけん"
+    },
+    {
+      "id": 80,
+      "kanji": "調査",
+      "korean": "조사",
+      "hiragana": "ちょうさ"
+    },
+    {
+      "id": 81,
+      "kanji": "組織",
+      "korean": "조직",
+      "hiragana": "そしき"
+    },
+    {
+      "id": 82,
+      "kanji": "措置",
+      "korean": "조치",
+      "hiragana": "そち"
+    },
+    {
+      "id": 83,
+      "kanji": "調和",
+      "korean": "조화",
+      "hiragana": "ちょうわ"
+    },
+    {
+      "id": 84,
+      "kanji": "存在",
+      "korean": "존재",
+      "hiragana": "そんざい"
+    },
+    {
+      "id": 85,
+      "kanji": "尊敬",
+      "korean": "존경",
+      "hiragana": "そんけい"
+    },
+    {
+      "id": 86,
+      "kanji": "卒業",
+      "korean": "졸업",
+      "hiragana": "そつぎょう"
+    },
+    {
+      "id": 87,
+      "kanji": "種類",
+      "korean": "종류",
+      "hiragana": "しゅるい"
+    },
+    {
+      "id": 88,
+      "kanji": "終了",
+      "korean": "종료",
+      "hiragana": "しゅうりょう"
+    },
+    {
+      "id": 89,
+      "kanji": "重要",
+      "korean": "중요",
+      "hiragana": "じゅうよう"
+    },
+    {
+      "id": 90,
+      "kanji": "準備",
+      "korean": "준비",
+      "hiragana": "じゅんび"
+    }
+  ]
+}

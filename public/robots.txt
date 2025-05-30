@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://japango.vercel.app/sitemap.xml
