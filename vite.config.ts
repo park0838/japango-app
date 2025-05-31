@@ -6,17 +6,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react({
-      // React 최적화 설정
-      fastRefresh: true,
-      jsxImportSource: '@emotion/react',
-      babel: {
-        plugins: [
-          // Production에서 console.log 제거
-          process.env.NODE_ENV === 'production' && 'babel-plugin-transform-remove-console'
-        ].filter(Boolean)
-      }
-    }),
+    react(),
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
