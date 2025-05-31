@@ -75,6 +75,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
       return next;
     });
     resetCardState();
+    return;
   }, [weekData]);
 
   const handlePrev = useCallback(() => {

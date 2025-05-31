@@ -100,7 +100,7 @@ export const StatsPage: React.FC<StatsPageProps> = ({ onNavigate }) => {
       // 모든 주차의 학습 기록 확인
       for (const week of availableWeeks) {
         const lastStudied = loadFromStorage(`last_studied_week${week}`, '');
-        if (lastStudied && lastStudied.startsWith(dateStr)) {
+        if (typeof lastStudied === 'string' && lastStudied.startsWith(dateStr)) {
           studiedOnDate = true;
           break;
         }
