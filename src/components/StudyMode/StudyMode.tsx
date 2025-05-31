@@ -64,8 +64,10 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     return () => clearTimeout(timer);
   }, [isAutoPlay, currentIndex, weekData]);
 
-  const handleNext = useCallback(() => {
-    if (!weekData) return;
+  const handleNext = useCallback((): void => {
+    if (!weekData) {
+      return;
+    }
     
     setCurrentIndex(prev => {
       const next = (prev + 1) % weekData.words.length;
@@ -75,11 +77,12 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
       return next;
     });
     resetCardState();
-    return;
   }, [weekData]);
 
-  const handlePrev = useCallback(() => {
-    if (!weekData) return;
+  const handlePrev = useCallback((): void => {
+    if (!weekData) {
+      return;
+    }
     
     setCurrentIndex(prev => (prev - 1 + weekData.words.length) % weekData.words.length);
     resetCardState();
@@ -90,7 +93,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     setShowHint(false);
   };
 
-  const handleCardFlip = async () => {
+  const handleCardFlip = async (): Promise<void> => {
     setIsCardFlipped(!isCardFlipped);
     if (!isCardFlipped && currentWord) {
       try {
@@ -101,7 +104,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     }
   };
 
-  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+  const handleKeyPress = useCallback((e: KeyboardEvent): void => {
     switch (e.key) {
       case 'ArrowRight':
         handleNext();
