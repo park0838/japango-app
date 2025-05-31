@@ -63,16 +63,10 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     return ((currentIndex + 1) / weekData.words.length) * 100;
   }, [currentIndex, weekData]);
 
-  // 자동 재생
-  useEffect(() => {
-    if (!isAutoPlay || !weekData) return;
-    
-    const timer = setTimeout(() => {
-      handleNext();
-    }, 4000);
-    
-    return () => clearTimeout(timer);
-  }, [isAutoPlay, currentIndex, weekData, handleNext]);
+  const resetCardState = () => {
+    setIsCardFlipped(false);
+    setShowHint(false);
+  };
 
   const handleNext = useCallback(() => {
     if (!weekData) return;
@@ -94,10 +88,16 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     resetCardState();
   }, [weekData]);
 
-  const resetCardState = () => {
-    setIsCardFlipped(false);
-    setShowHint(false);
-  };
+  // 자동 재생
+  useEffect(() => {
+    if (!isAutoPlay || !weekData) return;
+    
+    const timer = setTimeout(() => {
+      handleNext();
+    }, 4000);
+    
+    return () => clearTimeout(timer);
+  }, [isAutoPlay, currentIndex, weekData, handleNext]);
 
   const handleCardFlip = useCallback(async () => {
     setIsCardFlipped(!isCardFlipped);
