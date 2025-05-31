@@ -2,64 +2,42 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#1e40af" />
-    <meta name="description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
-    <meta name="keywords" content="일본어, 단어, 암기, 학습, 테스트, JLPT, 일본어공부" />
-    <meta name="author" content="Japango" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="체계적이고 현대적인 일본어 단어 학습 플랫폼. 주차별 90개 단어를 효과적으로 암기하세요." />
+    <meta name="theme-color" content="#f14458" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="JapanGo" />
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://japango.vercel.app/" />
-    <meta property="og:title" content="Japango - 일본어 단어 암기" />
-    <meta property="og:description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
-    <meta property="og:image" content="/og-image.png" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://japango.vercel.app/" />
-    <meta property="twitter:title" content="Japango - 일본어 단어 암기" />
-    <meta property="twitter:description" content="주차별 일본어 단어 암기 및 테스트 - 매주 90개의 일본어 단어를 효과적으로 학습하세요" />
-    <meta property="twitter:image" content="/og-image.png" />
-    
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    <title>JapanGo - 일본어 단어 암기</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZjE0NDU4Ii8+PHRleHQgeD0iMzIiIHk9IjQwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ml6U8L3RleHQ+PC9zdmc+" />
     
-    <!-- Preconnect to improve performance -->
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2YxNDQ1OCIvPjx0ZXh0IHg9IjkwIiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXpTwvdGV4dD48L3N2Zz4=" />
+    
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    
-    <title>Japango - 일본어 단어 암기</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/src/index.css" as="style" />
-    <script type="module" src="/src/main.tsx" defer></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
-    
-    <!-- Noscript fallback -->
-    <noscript>
-      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
-        <h1>JavaScript가 필요합니다</h1>
-        <p>이 애플리케이션을 사용하려면 JavaScript를 활성화해주세요.</p>
-      </div>
-    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
     
     <!-- Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => console.log('SW registered:', registration))
-            .catch(error => console.log('SW registration failed:', error));
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('ServiceWorker registration successful'))
+            .catch(err => console.log('ServiceWorker registration failed: ', err));
         });
       }
     </script>

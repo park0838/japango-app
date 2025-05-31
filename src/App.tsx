@@ -14,6 +14,7 @@ export type PageType =
   | 'weeks' 
   | 'wrong-answers' 
   | 'stats'
+  | 'test-all'
   | `study-week-${number}`
   | `test-week-${number}`;
 
@@ -81,6 +82,8 @@ function App() {
         return <WrongAnswersPage onNavigate={handleNavigate} />;
       case 'stats':
         return <StatsPage onNavigate={handleNavigate} />;
+      case 'test-all':
+        return <TestMode week={0} onNavigate={handleNavigate} />; // week=0은 "종합 테스트"를 의미
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

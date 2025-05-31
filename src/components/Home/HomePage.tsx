@@ -63,6 +63,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <span className="btn-icon">🚀</span>
           주차별 학습 시작
         </button>
+        {availableWeeks.length > 1 && (
+          <button 
+            className="btn btn-warning btn-lg"
+            onClick={() => onNavigate('test-all')}
+          >
+            <span className="btn-icon">🌐</span>
+            종합 테스트
+          </button>
+        )}
         {wrongAnswersCount > 0 && (
           <button 
             className="btn btn-outline btn-lg"

@@ -3,6 +3,7 @@ import { VocabWord, WeekData } from '../../types';
 import { useVocabulary } from '../../hooks/useVocabulary';
 import { saveToStorage, loadFromStorage } from '../../utils/storage';
 import { speakJapanese } from '../../services/audioService';
+import type { WrongAnswer } from '../WrongAnswers/WrongAnswersPage';
 import './TestMode.css';
 
 interface TestModeProps {
@@ -19,13 +20,7 @@ interface TestQuestion {
   correctAnswer: string;
 }
 
-interface WrongAnswer {
-  word: VocabWord;
-  userAnswer: string;
-  correctAnswer: string;
-  week: number;
-  timestamp: number;
-}
+
 
 export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
   const { loadWeekData } = useVocabulary();
@@ -40,6 +35,10 @@ export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
     'korean-to-kanji',
     'reading-to-korean'
   ]);
+  const [testSettings, setTestSettings] = useState({
+    questionCount: 20,
+    randomOrder: true
+  });
   const [testCompleted, setTestCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -62,16 +61,26 @@ export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
 
   // 문제 생성
   const generateQuestions = (words: VocabWord[]) => {
+    if (selectedTypes.length === 0) {
+      setQuestions([]);
+      return;
+    }
+
     // 단어 섞기
-    const shuffledWords = [...words].sort(() => Math.random() - 0.5);
-    const generatedQuestions: TestQuestion[] = [];
+    const shuffledWords = testSettings.randomOrder 
+      ? [...words].sort(() => Math.random() - 0.5)
+      : [...words];
     
-    shuffledWords.forEach((word, index) => {
+    const generatedQuestions: TestQuestion[] = [];
+    const questionsToGenerate = Math.min(testSettings.questionCount, shuffledWords.length);
+    
+    for (let i = 0; i < questionsToGenerate; i++) {
+      const word = shuffledWords[i];
       // 문제 유형 선택
-      const type = selectedTypes[index % selectedTypes.length];
+      const type = selectedTypes[i % selectedTypes.length];
       const question = generateQuestion(word, words, type);
       generatedQuestions.push(question);
-    });
+    }
     
     setQuestions(generatedQuestions);
   };
@@ -220,8 +229,9 @@ export const TestMode: React.FC<TestModeProps> = ({ week, onNavigate }) => {
       handleNext();
     } else if (!showResult && e.key >= '1' && e.key <= '4') {
       const index = parseInt(e.key) - 1;
-      if (index < questions[currentQuestionIndex]?.choices.length) {
-        handleAnswerSelect(questions[currentQuestionIndex].choices[index]);
+      const currentQuestion = questions[currentQuestionIndex];
+      if (currentQuestion && index < currentQuestion.choices.length) {
+        handleAnswerSelect(currentQuestion.choices[index]);
       }
     }
   }, [showResult, currentQuestionIndex, questions]);

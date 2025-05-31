@@ -37,60 +37,7 @@ export default defineConfig({
         ]
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
-      manifest: {
-        name: 'JapanGo - 일본어 단어 암기',
-        short_name: 'JapanGo',
-        description: '체계적인 일본어 단어 학습 플랫폼',
-        theme_color: '#f14458',
-        background_color: '#ffffff',
-        display: 'standalone',
-        orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
-        icons: [
-          {
-            src: 'icons/icon-72x72.png',
-            sizes: '72x72',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-96x96.png',
-            sizes: '96x96',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-128x128.png',
-            sizes: '128x128',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-144x144.png',
-            sizes: '144x144',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-152x152.png',
-            sizes: '152x152',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-384x384.png',
-            sizes: '384x384',
-            type: 'image/png'
-          },
-          {
-            src: 'icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
-          }
-        ]
-      }
+      manifest: false // 별도의 manifest.json 사용
     })
   ],
   resolve: {
@@ -170,22 +117,7 @@ export default defineConfig({
     exclude: ['@vite/client', '@vite/env'],
   },
   css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/styles/variables.scss";`
-      }
-    },
-    devSourcemap: true,
-    postcss: {
-      plugins: [
-        // Autoprefixer는 package.json의 browserslist에 따라 자동 적용
-      ]
-    }
-  },
-  // 환경 변수 설정
-  define: {
-    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
-    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    devSourcemap: true
   },
   // 개발 환경 성능 최적화
   esbuild: {

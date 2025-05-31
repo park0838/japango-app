@@ -18,10 +18,10 @@
   "homepage": "https://japango.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/japango-app.git"
+    "url": "https://github.com/japango/japango-app.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/japango-app/issues"
+    "url": "https://github.com/japango/japango-app/issues"
   },
   "scripts": {
     "dev": "vite --host",
@@ -35,6 +35,8 @@
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist node_modules/.vite",
     "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.{js,ts,tsx,css,md,json}\"",
+    "format:check": "prettier --check \"src/**/*.{js,ts,tsx,css,md,json}\"",
     "sync-vocab": "node scripts/sync-vocabulary.cjs",
     "postinstall": "npm run sync-vocab"
   },
@@ -54,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.4.0",
     "vite-plugin-pwa": "^1.0.0",
@@ -71,19 +74,13 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
-      "git add"
+      "prettier --write"
     ],
-    "*.{js,ts,tsx,css,md,json}": [
-      "prettier --write",
-      "git add"
+    "*.{js,css,md,json}": [
+      "prettier --write"
     ]
   },
   "engines": {

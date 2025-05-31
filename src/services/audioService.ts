@@ -10,6 +10,32 @@ const checkSpeechSupport = (): boolean => {
   return speechSupported;
 };
 
+// 사용 가능한 음성 목록 가져오기
+const getAvailableVoices = (): Promise<SpeechSynthesisVoice[]> => {
+  return new Promise((resolve) => {
+    if (!checkSpeechSupport()) {
+      resolve([]);
+      return;
+    }
+
+    const voices = window.speechSynthesis.getVoices();
+    
+    if (voices.length > 0) {
+      resolve(voices);
+    } else {
+      // 타임아웃 설정 (5초 후 빈 배열 반환)
+      const timeout = setTimeout(() => {
+        resolve([]);
+      }, 5000);
+
+      window.speechSynthesis.addEventListener('voiceschanged', () => {
+        clearTimeout(timeout);
+        resolve(window.speechSynthesis.getVoices());
+      }, { once: true });
+    }
+  });
+};
+
 export const speakJapanese = (text: string): Promise<boolean> => {
   return new Promise((resolve) => {
     if (!checkSpeechSupport()) {
@@ -46,10 +72,12 @@ export const speakJapanese = (text: string): Promise<boolean> => {
       // 일본어 음성 찾기
       const getJapaneseVoice = () => {
         const voices = window.speechSynthesis.getVoices();
-        const japaneseVoices = voices.filter(voice => voice.lang.startsWith('ja'));
+        const japaneseVoices = voices.filter(voice => 
+          voice.lang.startsWith('ja') || voice.lang === 'ja-JP'
+        );
         
         // 선호하는 음성 순서
-        const preferredVoices = ['Google 日本語', 'Microsoft Haruka', 'Kyoko'];
+        const preferredVoices = ['Google 日本語', 'Microsoft Haruka', 'Kyoko', 'Otoya', 'Google'];
         
         for (const preferred of preferredVoices) {
           const voice = japaneseVoices.find(v => v.name.includes(preferred));
@@ -84,7 +112,7 @@ export const speakJapanese = (text: string): Promise<boolean> => {
   });
 };
 
-// 한국어 음성 재생 (개선된 버전)
+// 한국어 음성 재생 (필요시 사용)
 export const speakKorean = (text: string): Promise<boolean> => {
   return new Promise((resolve) => {
     if (!checkSpeechSupport()) {
@@ -122,42 +150,6 @@ export const speakKorean = (text: string): Promise<boolean> => {
   });
 };
 
-// 음성 지원 확인
-export const checkSpeechSynthesisSupport = (): boolean => {
-  return checkSpeechSupport();
-};
-
-// 사용 가능한 음성 목록 가져오기 (개선된 버전)
-export const getAvailableVoices = (): Promise<SpeechSynthesisVoice[]> => {
-  return new Promise((resolve) => {
-    if (!checkSpeechSupport()) {
-      resolve([]);
-      return;
-    }
-
-    const voices = window.speechSynthesis.getVoices();
-    
-    if (voices.length > 0) {
-      resolve(voices);
-    } else {
-      // 타임아웃 설정 (5초 후 빈 배열 반환)
-      const timeout = setTimeout(() => {
-        resolve([]);
-      }, 5000);
-
-      window.speechSynthesis.addEventListener('voiceschanged', () => {
-        clearTimeout(timeout);
-        resolve(window.speechSynthesis.getVoices());
-      }, { once: true });
-    }
-  });
-};
-
-// 음성 재생 중인지 확인
-export const isSpeaking = (): boolean => {
-  return checkSpeechSupport() ? window.speechSynthesis.speaking : false;
-};
-
 // 음성 재생 중지
 export const stopSpeaking = (): void => {
   if (checkSpeechSupport()) {
@@ -165,28 +157,8 @@ export const stopSpeaking = (): void => {
   }
 };
 
-// 음성 재생 일시 정지
-export const pauseSpeaking = (): void => {
-  if (checkSpeechSupport()) {
-    window.speechSynthesis.pause();
-  }
-};
-
-// 음성 재생 재개
-export const resumeSpeaking = (): void => {
-  if (checkSpeechSupport()) {
-    window.speechSynthesis.resume();
-  }
-};
-
 // 일본어 음성 사용 가능 여부 확인
 export const checkJapaneseVoiceSupport = async (): Promise<boolean> => {
   const voices = await getAvailableVoices();
   return voices.some(voice => voice.lang.startsWith('ja'));
-};
-
-// 한국어 음성 사용 가능 여부 확인
-export const checkKoreanVoiceSupport = async (): Promise<boolean> => {
-  const voices = await getAvailableVoices();
-  return voices.some(voice => voice.lang.startsWith('ko'));
 };

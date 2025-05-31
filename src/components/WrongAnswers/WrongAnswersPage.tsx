@@ -8,7 +8,7 @@ interface WrongAnswersPageProps {
   onNavigate: (page: string) => void;
 }
 
-interface WrongAnswer {
+export interface WrongAnswer {
   word: VocabWord;
   userAnswer: string;
   correctAnswer: string;
@@ -59,6 +59,9 @@ export const WrongAnswersPage: React.FC<WrongAnswersPageProps> = ({ onNavigate }
     // 현재 학습 중인 주차의 단어가 모두 제거되었는지 확인
     if (selectedWeek && filtered.filter((ans: WrongAnswer) => ans.week === selectedWeek).length === 0) {
       setSelectedWeek(null);
+    } else if (selectedWeek && currentIndex >= filtered.filter((ans: WrongAnswer) => ans.week === selectedWeek).length) {
+      // 현재 인덱스가 범위를 벗어나면 마지막 요소로 이동
+      setCurrentIndex(Math.max(0, filtered.filter((ans: WrongAnswer) => ans.week === selectedWeek).length - 1));
     }
   };
 

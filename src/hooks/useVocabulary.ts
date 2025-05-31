@@ -54,14 +54,19 @@ export const useVocabulary = () => {
         let totalCount = 0;
         
         // 최대 10주차까지 확인
+        let consecutiveFails = 0;
         for (let i = 1; i <= 10; i++) {
           const data = await loadWeekData(i);
           if (data) {
             weeks.push(i);
             totalCount += data.totalWords;
+            consecutiveFails = 0;
           } else {
-            // 연속된 주차가 없으면 중단
-            break;
+            consecutiveFails++;
+            // 2번 연속 실패하면 중단 (주차가 비었거나 끝난 것으로 판단)
+            if (consecutiveFails >= 2) {
+              break;
+            }
           }
         }
         

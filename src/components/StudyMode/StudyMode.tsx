@@ -111,11 +111,19 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
   }, [isCardFlipped, currentWord]);
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    // 입력 필드에 포커스가 있으면 키보드 단축키 무시
+    if (document.activeElement?.tagName === 'INPUT' || 
+        document.activeElement?.tagName === 'TEXTAREA') {
+      return;
+    }
+    
     switch (e.key) {
       case 'ArrowRight':
+        e.preventDefault();
         handleNext();
         break;
       case 'ArrowLeft':
+        e.preventDefault();
         handlePrev();
         break;
       case ' ':
@@ -123,9 +131,13 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
         handleCardFlip();
         break;
       case 'h':
+      case 'H':
+        e.preventDefault();
         setShowHint(prev => !prev);
         break;
       case 'a':
+      case 'A':
+        e.preventDefault();
         setIsAutoPlay(prev => !prev);
         break;
     }
