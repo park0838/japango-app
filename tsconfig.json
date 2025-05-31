@@ -47,9 +47,6 @@
     "allowUnreachableCode": false,
     
     // 고급 설정
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
     "removeComments": false,
     "importHelpers": true,
     "downlevelIteration": true,
@@ -71,7 +68,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.json",
-    "vite.config.ts",
     "**/*.d.ts"
   ],
   "exclude": [
