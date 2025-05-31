@@ -1,120 +1,35 @@
 {
-  "version": 2,
-  "name": "japango",
-  "alias": ["japango.vercel.app"],
-  "builds": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/sw.js",
-      "headers": {
-        "Service-Worker-Allowed": "/",
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "src": "/manifest.json",
-      "headers": {
-        "Content-Type": "application/manifest+json",
-        "Cache-Control": "public, max-age=86400"
-      }
-    },
-    {
-      "src": "/vocabulary/(.*)",
-      "headers": {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=86400"
-      }
-    },
-    {
-      "src": "/icons/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/assets/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/sw.js",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
+          "key": "Service-Worker-Allowed",
+          "value": "/"
         },
         {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "geolocation=(), microphone=(), camera=(), speaker-selection=()"
+          "key": "Cache-Control",
+          "value": "no-cache"
         }
       ]
     },
     {
-      "source": "/index.html",
+      "source": "/manifest.webmanifest",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "key": "Content-Type",
+          "value": "application/manifest+json"
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)",
-      "destination": "/index.html"
-    }
-  ],
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "@vercel/node@2"
-    }
-  },
-  "crons": [],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "VITE_APP_VERSION": "2.0.0",
-      "VITE_BUILD_TIME": "@now"
-    }
-  },
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "framework": null,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "outputDirectory": "dist"
+  ]
 }
