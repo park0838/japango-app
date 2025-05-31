@@ -64,10 +64,8 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     return () => clearTimeout(timer);
   }, [isAutoPlay, currentIndex, weekData]);
 
-  const handleNext = useCallback((): void => {
-    if (!weekData) {
-      return;
-    }
+  const handleNext = useCallback(() => {
+    if (!weekData) return;
     
     setCurrentIndex(prev => {
       const next = (prev + 1) % weekData.words.length;
@@ -79,10 +77,8 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     resetCardState();
   }, [weekData]);
 
-  const handlePrev = useCallback((): void => {
-    if (!weekData) {
-      return;
-    }
+  const handlePrev = useCallback(() => {
+    if (!weekData) return;
     
     setCurrentIndex(prev => (prev - 1 + weekData.words.length) % weekData.words.length);
     resetCardState();
@@ -93,18 +89,18 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     setShowHint(false);
   };
 
-  const handleCardFlip = async (): Promise<void> => {
+  const handleCardFlip = async () => {
     setIsCardFlipped(!isCardFlipped);
-    if (!isCardFlipped && currentWord) {
+    if (!isCardFlipped && weekData && weekData.words[currentIndex]) {
       try {
-        await speakJapanese(currentWord.hiragana);
+        await speakJapanese(weekData.words[currentIndex].hiragana);
       } catch (error) {
         console.warn('음성 재생에 실패했습니다:', error);
       }
     }
   };
 
-  const handleKeyPress = useCallback((e: KeyboardEvent): void => {
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
     switch (e.key) {
       case 'ArrowRight':
         handleNext();
@@ -216,7 +212,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
           onClick={handleCardFlip}
           role="button"
           tabIndex={0}
-          aria-label={`단어 카드: ${currentWord.kanji}. 클릭하거나 스페이스바를 눌러 뒤집으세요`}
+          aria-label={`단어 카드: ${currentWord?.kanji || ''}. 클릭하거나 스페이스바를 눌러 뒤집으세요`}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
@@ -225,18 +221,18 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
           }}
         >
           <div className="card-front" aria-hidden={isCardFlipped}>
-            <div className="kanji">{currentWord.kanji}</div>
+            <div className="kanji">{currentWord?.kanji || ''}</div>
             <p className="card-hint">카드를 클릭하여 뒤집어보세요</p>
           </div>
           
           <div className="card-back" aria-hidden={!isCardFlipped}>
-            <div className="kanji-small">{currentWord.kanji}</div>
-            <div className="reading">{currentWord.hiragana}</div>
-            <div className="meaning">{currentWord.korean}</div>
+            <div className="kanji-small">{currentWord?.kanji || ''}</div>
+            <div className="reading">{currentWord?.hiragana || ''}</div>
+            <div className="meaning">{currentWord?.korean || ''}</div>
           </div>
         </div>
 
-        {showHint && !isCardFlipped && (
+        {showHint && !isCardFlipped && currentWord && (
           <div className="hint-box">
             <span className="hint-icon">💡</span>
             <span className="hint-text">
@@ -249,6 +245,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
           <button 
             className="btn btn-secondary"
             onClick={async () => {
+              if (!currentWord) return;
               try {
                 await speakJapanese(currentWord.hiragana);
               } catch (error) {
