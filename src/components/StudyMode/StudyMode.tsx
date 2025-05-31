@@ -53,6 +53,16 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     }
   }, [currentIndex, studiedToday, week, weekData]);
 
+  // currentWord를 먼저 계산
+  const currentWord = useMemo(() => {
+    return weekData?.words[currentIndex] || null;
+  }, [weekData, currentIndex]);
+  
+  const progress = useMemo(() => {
+    if (!weekData || weekData.words.length === 0) return 0;
+    return ((currentIndex + 1) / weekData.words.length) * 100;
+  }, [currentIndex, weekData]);
+
   // 자동 재생
   useEffect(() => {
     if (!isAutoPlay || !weekData) return;
@@ -62,7 +72,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     }, 4000);
     
     return () => clearTimeout(timer);
-  }, [isAutoPlay, currentIndex, weekData]);
+  }, [isAutoPlay, currentIndex, weekData, handleNext]);
 
   const handleNext = useCallback(() => {
     if (!weekData) return;
@@ -89,16 +99,16 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
     setShowHint(false);
   };
 
-  const handleCardFlip = async () => {
+  const handleCardFlip = useCallback(async () => {
     setIsCardFlipped(!isCardFlipped);
-    if (!isCardFlipped && weekData && weekData.words[currentIndex]) {
+    if (!isCardFlipped && currentWord) {
       try {
-        await speakJapanese(weekData.words[currentIndex].hiragana);
+        await speakJapanese(currentWord.hiragana);
       } catch (error) {
         console.warn('음성 재생에 실패했습니다:', error);
       }
     }
-  };
+  }, [isCardFlipped, currentWord]);
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
     switch (e.key) {
@@ -119,7 +129,7 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
         setIsAutoPlay(prev => !prev);
         break;
     }
-  }, [handleNext, handlePrev]);
+  }, [handleNext, handlePrev, handleCardFlip]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
@@ -154,16 +164,6 @@ export const StudyMode: React.FC<StudyModeProps> = ({ week, onNavigate }) => {
       </div>
     );
   }
-
-  // 성능 최적화: currentWord를 useMemo로 메모화
-  const currentWord = useMemo(() => {
-    return weekData?.words[currentIndex] || null;
-  }, [weekData, currentIndex]);
-  
-  const progress = useMemo(() => {
-    if (!weekData || weekData.words.length === 0) return 0;
-    return ((currentIndex + 1) / weekData.words.length) * 100;
-  }, [currentIndex, weekData]);
 
   return (
     <div className="study-mode performance-optimized" role="main" aria-label="일본어 단어 학습 모드">
