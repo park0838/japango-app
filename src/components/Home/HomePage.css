@@ -1,701 +1,215 @@
-/* ========================================
-   🏠 HomePage - Modern & Elegant Design
-   현대적이고 우아한 홈페이지 디자인
-   ======================================== */
+/* Simple HomePage Styles */
 
 .home-page {
-  max-width: var(--container-xl);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-6);
-  position: relative;
-  overflow: hidden;
-  
-  /* Ensure horizontal text layout */
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  direction: ltr;
+  padding: 2rem 1rem;
 }
-
-/* ========================================
-   Decorative Background Elements
-   ======================================== */
-
-.home-page::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0.3;
-  z-index: -1;
-  animation: float 20s ease-in-out infinite;
-}
-
-.home-page::after {
-  content: '';
-  position: absolute;
-  bottom: -10%;
-  left: -5%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, var(--color-secondary-light) 0%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0.2;
-  z-index: -1;
-  animation: float 25s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0) rotate(0deg) scale(1); 
-  }
-  33% { 
-    transform: translateY(-20px) rotate(5deg) scale(1.05); 
-  }
-  66% { 
-    transform: translateY(10px) rotate(-3deg) scale(0.95); 
-  }
-}
-
-/* ========================================
-   Hero Section - 영웅 섹션
-   ======================================== */
 
 .hero-section {
   text-align: center;
-  padding: var(--space-20) 0 var(--space-16);
-  position: relative;
-  margin-bottom: var(--space-16);
+  padding: 4rem 0 3rem;
+  margin-bottom: 3rem;
 }
 
 .hero-title {
   font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: var(--font-black);
-  margin-bottom: var(--space-6);
-  
-  /* Ensure horizontal text */
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  direction: ltr;
-  
-  /* 그라데이션 텍스트 */
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-secondary) 50%,
-    var(--color-primary-hover) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientFlow 4s ease-in-out infinite;
-  
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: #f14458;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
+  gap: 1rem;
   flex-wrap: wrap;
-  
-  /* Text shadow for better contrast */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  
-  /* 폴백 */
-  color: var(--color-primary);
-}
-
-@keyframes gradientFlow {
-  0%, 100% { 
-    background-position: 0% 50%; 
-    transform: scale(1);
-  }
-  50% { 
-    background-position: 100% 50%; 
-    transform: scale(1.02);
-  }
 }
 
 .hero-title .emoji {
-  -webkit-text-fill-color: initial;
   font-size: 0.8em;
   display: inline-block;
-  animation: bounce 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-}
-
-@keyframes bounce {
-  0%, 100% { 
-    transform: translateY(0) rotate(0deg); 
-  }
-  25% { 
-    transform: translateY(-12px) rotate(-8deg); 
-  }
-  50% { 
-    transform: translateY(-6px) rotate(4deg); 
-  }
-  75% { 
-    transform: translateY(-12px) rotate(-4deg); 
-  }
 }
 
 .hero-subtitle {
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
-  color: var(--color-text-secondary);
-  font-weight: var(--font-light);
-  letter-spacing: var(--tracking-wide);
-  margin-top: var(--space-4);
-  opacity: 0.8;
-  
-  /* Subtle animation */
-  animation: fadeInUp 1s ease-out 0.3s both;
+  font-size: 1.25rem;
+  color: #64748b;
+  font-weight: 300;
 }
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-}
-
-/* Decorative line */
-.hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(
-    90deg, 
-    transparent 0%, 
-    var(--color-primary) 20%, 
-    var(--color-primary) 80%, 
-    transparent 100%
-  );
-  border-radius: var(--radius-full);
-  animation: expandLine 1s ease-out 0.6s both;
-}
-
-@keyframes expandLine {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 80px;
-    opacity: 1;
-  }
-}
-
-/* ========================================
-   Stats Grid - 통계 카드 그리드
-   ======================================== */
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-6);
-  margin-bottom: var(--space-20);
-  animation: fadeIn 1s ease-out 0.9s both;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .stat-card {
-  /* Layout */
-  padding: var(--space-8);
-  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  border-radius: 1rem;
   text-align: center;
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  
-  /* Visual */
-  background: var(--color-bg-elevated);
-  border: var(--border-1) solid var(--color-border-light);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-base);
-  
-  /* 성능 최적화 */
-  contain: layout style;
-  transform: translateZ(0);
-  cursor: default;
-}
-
-/* Glass morphism effect */
-.stat-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: inherit;
-  z-index: -1;
-}
-
-.dark-theme .stat-card::before {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.02) 50%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-}
-
-/* Shine effect */
-.stat-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 70%
-  );
-  transform: rotate(45deg) translateY(100%);
-  transition: transform var(--duration-700) var(--ease-out);
-  z-index: -1;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-8px) rotateX(2deg);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-border-default);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.stat-card:hover::after {
-  transform: rotate(45deg) translateY(-100%);
-}
-
-/* Color variants */
 .stat-card.primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-primary);
+  background: linear-gradient(135deg, #f14458 0%, #de2339 100%);
+  color: white;
   border: none;
 }
 
 .stat-card.success {
-  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-hover) 100%);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-success);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
   border: none;
 }
 
 .stat-card.info {
-  background: linear-gradient(135deg, var(--color-info) 0%, var(--color-info-hover) 100%);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-secondary);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
   border: none;
 }
 
 .stat-card.error {
-  background: linear-gradient(135deg, var(--color-error) 0%, var(--color-error-hover) 100%);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-error);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
   border: none;
 }
 
 .stat-number {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: var(--font-black);
-  margin-bottom: var(--space-2);
-  line-height: var(--leading-none);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  letter-spacing: var(--tracking-tight);
-  
-  /* Counter animation */
-  animation: countUp 1s ease-out;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  line-height: 1;
 }
-
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.stat-label {
-  font-size: var(--text-base);
-  font-weight: var(--font-medium);
-  letter-spacing: var(--tracking-wide);
-  opacity: 0.9;
-  
-  /* Force horizontal text layout */
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  direction: ltr !important;
-  word-break: keep-all;
-}
-
-/* ========================================
-   Action Buttons - 액션 버튼 섹션
-   ======================================== */
 
 .action-buttons {
   display: flex;
-  gap: var(--space-4);
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: var(--space-20);
-  padding: 0 var(--space-4);
-  animation: slideUp 1s ease-out 1.2s both;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
 }
-
-.action-buttons .btn {
-  min-width: 220px;
-  position: relative;
-  overflow: visible;
-  font-weight: var(--font-semibold);
-}
-
-/* Special effects for primary action */
-.action-buttons .btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-.action-buttons .btn-primary::before {
-  content: '✨';
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  font-size: 1.2rem;
-  opacity: 0;
-  transform: rotate(-20deg) scale(0);
-  transition: var(--transition-base);
-  z-index: 1;
-}
-
-.action-buttons .btn-primary:hover::before {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-  animation: sparkle 1s ease-out;
-}
-
-@keyframes sparkle {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  25% { transform: rotate(-10deg) scale(1.2); }
-  75% { transform: rotate(10deg) scale(1.1); }
-}
-
-/* Icon animations */
-.btn-icon {
-  font-size: 1.25rem;
-  transition: transform var(--duration-300) var(--ease-spring);
-}
-
-.btn:hover .btn-icon {
-  transform: translateX(4px) scale(1.1);
-}
-
-/* ========================================
-   Features Section - 기능 소개 섹션
-   ======================================== */
 
 .features-section {
-  margin-bottom: var(--space-20);
-  position: relative;
-  animation: fadeIn 1s ease-out 1.5s both;
+  margin-bottom: 4rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.week-preview {
+  margin-bottom: 3rem;
 }
 
 .section-title {
   text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: var(--font-bold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-16);
-  position: relative;
-  display: block;
-  
-  /* Force horizontal text layout */
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  direction: ltr !important;
-  word-break: keep-all;
-  
-  /* Gradient underline effect */
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--color-primary) 50%,
-    transparent 100%
-  );
-  background-size: 0% 2px;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  padding-bottom: var(--space-4);
-  
-  animation: underlineExpand 1s ease-out 1.8s both;
-}
-
-@keyframes underlineExpand {
-  to {
-    background-size: 60% 2px;
-  }
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-8);
-}
-
-.feature-card {
-  /* Layout */
-  padding: var(--space-8);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  
-  /* Visual */
-  background: var(--color-bg-elevated);
-  border: var(--border-1) solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-sm);
-  
-  /* Interaction */
-  cursor: pointer;
-  transition: var(--transition-base);
-  
-  /* 성능 최적화 */
-  contain: layout style;
-  transform: translateZ(0);
-}
-
-/* Modern gradient overlay */
-.feature-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-lighter) 0%,
-    transparent 50%,
-    var(--color-secondary-light) 100%
-  );
-  opacity: 0;
-  transition: opacity var(--duration-300) var(--ease-out);
-  border-radius: inherit;
-}
-
-.feature-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary-light);
-}
-
-.feature-card:hover::before {
-  opacity: 0.05;
-}
-
-.feature-icon {
-  font-size: 4rem;
-  margin-bottom: var(--space-6);
-  display: inline-block;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-  transition: var(--transition-base);
-  
-  /* Breathing animation */
-  animation: breathe 4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.feature-card:hover .feature-icon {
-  transform: scale(1.2) rotate(5deg);
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
-}
-
-.feature-card h3 {
-  font-size: var(--text-xl);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-4);
-  font-weight: var(--font-bold);
-  transition: color var(--duration-200) var(--ease-out);
-}
-
-.feature-card:hover h3 {
-  color: var(--color-primary);
-}
-
-.feature-card p {
-  color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
-  font-size: var(--text-base);
-}
-
-/* ========================================
-   Week Preview - 주차 미리보기 섹션
-   ======================================== */
-
-.week-preview {
-  margin-bottom: var(--space-16);
-  animation: fadeIn 1s ease-out 2.1s both;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 3rem;
 }
 
 .week-preview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-6);
-  margin-bottom: var(--space-8);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .week-preview-card {
-  /* Layout */
-  padding: var(--space-6);
+  padding: 1.5rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  
-  /* Visual */
-  background: var(--color-bg-elevated);
-  border: var(--border-1) solid var(--color-border-light);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  
-  /* Interaction */
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: var(--transition-base);
-  transform-style: preserve-3d;
-}
-
-/* Week number decoration */
-.week-preview-card::before {
-  content: attr(data-week);
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  font-size: 4rem;
-  font-weight: var(--font-black);
-  color: var(--color-primary);
-  opacity: 0.08;
-  transform: rotate(-12deg);
-  pointer-events: none;
-  z-index: 0;
+  transition: all 0.2s ease;
 }
 
 .week-preview-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary);
-}
-
-.week-preview-card:hover::before {
-  opacity: 0.12;
-  transform: rotate(-8deg) scale(1.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #f14458;
 }
 
 .week-icon {
   font-size: 2.5rem;
-  margin-bottom: var(--space-4);
-  filter: grayscale(30%);
-  transition: var(--transition-base);
-  position: relative;
-  z-index: 1;
-}
-
-.week-preview-card:hover .week-icon {
-  filter: grayscale(0%);
-  transform: scale(1.15) rotate(5deg);
+  margin-bottom: 1rem;
 }
 
 .week-preview-card h3 {
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-2);
-  font-size: var(--text-lg);
-  font-weight: var(--font-semibold);
-  position: relative;
-  z-index: 1;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
-.week-preview-card p {
-  color: var(--color-text-tertiary);
-  font-size: var(--text-sm);
-  position: relative;
-  z-index: 1;
-}
-
-/* ========================================
-   Responsive Design
-   ======================================== */
-
-@media (max-width: 1024px) {
-  .home-page {
-    padding: var(--space-6) var(--space-4);
-  }
-  
-  .hero-section {
-    padding: var(--space-16) 0 var(--space-12);
-  }
-  
-  .features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-6);
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .home-page {
-    padding: var(--space-4) var(--space-3);
+    padding: 1.5rem 1rem;
   }
   
   .hero-section {
-    padding: var(--space-12) 0 var(--space-10);
-    margin-bottom: var(--space-12);
+    padding: 3rem 0 2rem;
   }
   
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    gap: 1rem;
   }
   
   .action-buttons {
-    gap: var(--space-3);
-    margin-bottom: var(--space-16);
+    gap: 0.75rem;
+    margin-bottom: 3rem;
   }
   
   .features-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
   
   .week-preview-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
   }
   
   .action-buttons {
@@ -703,78 +217,11 @@
     align-items: center;
   }
   
-  .action-buttons .btn {
-    width: 100%;
-    max-width: 300px;
-    min-width: unset;
-  }
-  
   .week-preview-grid {
     grid-template-columns: 1fr;
   }
   
-  .feature-card {
-    padding: var(--space-6);
-  }
-  
-  .feature-icon {
-    font-size: 3rem;
-  }
-  
-  /* Disable complex animations on mobile */
-  .stat-card:hover,
-  .feature-card:hover,
-  .week-preview-card:hover {
-    transform: translateY(-4px);
-  }
-}
-
-/* ========================================
-   Accessibility & Motion Preferences
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-title,
-  .hero-title .emoji,
-  .hero-subtitle,
-  .hero-section::after,
-  .stats-grid,
-  .action-buttons,
-  .features-section,
-  .week-preview,
-  .stat-card,
-  .feature-card,
-  .week-preview-card {
-    animation: none !important;
-  }
-  
-  .home-page::before,
-  .home-page::after {
-    animation: none !important;
-  }
-  
-  .feature-icon {
-    animation: none !important;
-  }
-  
-  .stat-card:hover,
-  .feature-card:hover,
-  .week-preview-card:hover {
-    transform: none !important;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .stat-card,
-  .feature-card,
-  .week-preview-card {
-    border-width: var(--border-2);
-    border-color: var(--color-text-primary);
-  }
-  
-  .hero-title {
-    -webkit-text-fill-color: var(--color-text-primary);
-    background: none;
+  .features-grid {
+    grid-template-columns: 1fr;
   }
 }

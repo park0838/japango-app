@@ -1,458 +1,53 @@
-/* ========================================
-   🇯🇵 JapanGo - Modern CSS Reset & Base Styles
-   ======================================== */
+/* Simple Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
+@import './styles/design-system.css';
 
-/* Font Imports - 최적화된 일본어/한국어 폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-/* Animation & Modern CSS Imports */
-@import './animations.css';
-@import './styles/modern-features.css';
-@import './styles/optimizations.css';
-
-/* ========================================
-   Modern CSS Reset & Performance Optimizations
-   ======================================== */
-
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
 }
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
-  text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  min-height: 100vh;
+  font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
-  font-family: 'Inter', 'Noto Sans KR', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  
-  /* Fix for vertical text issue */
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  direction: ltr;
-  
-  /* Performance optimizations */
-  contain: layout style;
-  transform: translateZ(0);
-  
-  /* Better text rendering on high-DPI displays */
-  text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  
-  /* Improve font rendering */
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga" 1, "calt" 1;
-}
-
-/* 미디어 요소 기본 설정 */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* 폼 요소 정규화 */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-button {
-  cursor: pointer;
-  user-select: none;
-}
-
-input,
-textarea {
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* 텍스트 요소 */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-  font-weight: inherit;
-  
-  /* Force horizontal text layout for all text elements */
+  color: #1a1a1a;
+  background: #ffffff;
   writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
   direction: ltr !important;
 }
 
-/* 링크 정규화 */
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, label {
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Button styles */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* Link styles */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* 리스트 정규화 */
-ul,
-ol {
+/* List styles */
+ul, ol {
   list-style: none;
-}
-
-/* 테이블 정규화 */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* 넘버 인풋 스피너 제거 */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-/* ========================================
-   Root 컨테이너
-   ======================================== */
-
-#root {
-  isolation: isolate;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile */
-  display: flex;
-  flex-direction: column;
-  
-  /* Performance optimization */
-  contain: layout style paint;
-  
-  /* Better stacking context */
-  position: relative;
-  z-index: 0;
-}
-
-/* ========================================
-   접근성 유틸리티
-   ======================================== */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-/* ========================================
-   포커스 스타일
-   ======================================== */
-
-:focus {
-  outline: none;
-}
-
-:focus-visible {
-  outline: 3px solid hsl(220 100% 60%);
-  outline-offset: 2px;
-  border-radius: 0.25rem;
-}
-
-/* 키보드 내비게이션만을 위한 포커스 */
-.focus-keyboard:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* ========================================
-   커스텀 스크롤바 (모던 디자인)
-   ======================================== */
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  transition: background 0.2s ease;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-*::-webkit-scrollbar-corner {
-  background: transparent;
-}
-
-/* 다크 모드 스크롤바 */
-.dark-theme * {
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-
-.dark-theme *::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.dark-theme *::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* ========================================
-   모션 설정
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* 모션을 선호하는 사용자를 위한 부드러운 전환 */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* ========================================
-   고대비 모드 대응
-   ======================================== */
-
-@media (prefers-contrast: high) {
-  :root {
-    --contrast-border: 2px solid;
-  }
-  
-  button,
-  input,
-  select,
-  textarea {
-    border: var(--contrast-border);
-  }
-}
-
-/* ========================================
-   다크/라이트 모드 대응
-   ======================================== */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-  }
-}
-
-/* ========================================
-   프린트 스타일
-   ======================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-  
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-  
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-  
-  pre {
-    white-space: pre-wrap !important;
-  }
-  
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-  
-  img {
-    page-break-inside: avoid;
-  }
-  
-  h1,
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-  
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-}
-
-/* ========================================
-   유틸리티 클래스
-   ======================================== */
-
-/* 텍스트 선택 방지 */
-.select-none {
-  user-select: none;
-}
-
-/* 클릭 방지 */
-.pointer-events-none {
-  pointer-events: none;
-}
-
-/* GPU 가속 */
-.gpu-accelerated {
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-/* 하드웨어 가속 */
-.hw-accelerated {
-  transform: translate3d(0, 0, 0);
-}
-
-/* 가로 텍스트 강제 유틸리티 */
-.text-horizontal {
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  direction: ltr !important;
-  word-break: keep-all !important;
-}
-
-/* 모든 자식 요소에 가로 텍스트 적용 */
-.force-horizontal,
-.force-horizontal * {
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  direction: ltr !important;
-  word-break: keep-all !important;
-}
-
-/* 스크린 리더 전용 */
-.screen-reader-only {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden !important;
-}
-
-/* ========================================
-   로딩 애니메이션 기본 스타일
-   ======================================== */
-
-.loading-spinner {
-  width: 2rem;
-  height: 2rem;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px solid currentColor;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ========================================
-   전역 변수 (CSS Custom Properties)
-   ======================================== */
-
-:root {
-  /* 기본 단위 */
-  --base-unit: 0.25rem; /* 4px */
-  
-  /* 애니메이션 기본값 */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 350ms;
-  
-  /* 이징 함수 */
-  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
-  /* 레이어 (z-index) */
-  --layer-base: 0;
-  --layer-raised: 1;
-  --layer-floating: 10;
-  --layer-overlay: 100;
-  --layer-modal: 1000;
-  --layer-tooltip: 10000;
 }
