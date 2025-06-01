@@ -33,6 +33,9 @@
   font-size: 1.25rem;
   color: #64748b;
   font-weight: 300;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
 }
 
 .stats-grid {
@@ -88,6 +91,16 @@
   line-height: 1;
 }
 
+.stat-label {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  opacity: 0.9;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
 .action-buttons {
   display: flex;
   gap: 1rem;
@@ -128,6 +141,25 @@
   display: inline-block;
 }
 
+.feature-card h3 {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
+.feature-card p {
+  color: #64748b;
+  line-height: 1.625;
+  font-size: 1rem;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
 .week-preview {
   margin-bottom: 3rem;
 }
@@ -138,6 +170,9 @@
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 3rem;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
 }
 
 .week-preview-grid {
@@ -174,6 +209,17 @@
   margin-bottom: 0.5rem;
   font-size: 1.125rem;
   font-weight: 600;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
+.week-preview-card p {
+  color: #64748b;
+  font-size: 0.875rem;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
 }
 
 /* Responsive */

@@ -31,22 +31,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <span className="emoji">🇯🇵</span>
           JapanGo
         </h1>
-        <p className="hero-subtitle"></p>
+        <p className="hero-subtitle">체계적인 일본어 단어 학습 플랫폼</p>
       </div>
 
       <div className="stats-grid">
         <div className="stat-card primary">
           <div className="stat-number">{availableWeeks.length}</div>
+          <div className="stat-label">학습 가능한 주차</div>
         </div>
         <div className="stat-card success">
           <div className="stat-number">{totalWords}</div>
+          <div className="stat-label">총 단어 수</div>
         </div>
         <div className="stat-card info">
           <div className="stat-number">{studiedToday}</div>
+          <div className="stat-label">오늘 학습한 단어</div>
         </div>
         {wrongAnswersCount > 0 && (
           <div className="stat-card error">
             <div className="stat-number">{wrongAnswersCount}</div>
+            <div className="stat-label">틀린 문제</div>
           </div>
         )}
       </div>
@@ -57,7 +61,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           onClick={() => onNavigate('weeks')}
         >
           <span className="btn-icon">🚀</span>
-          학습
+          주차별 학습 시작
         </button>
         {availableWeeks.length > 1 && (
           <button 
@@ -65,7 +69,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             onClick={() => onNavigate('test-all')}
           >
             <span className="btn-icon">🌐</span>
-            테스트
+            종합 테스트
           </button>
         )}
         {wrongAnswersCount > 0 && (
@@ -74,7 +78,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             onClick={() => onNavigate('wrong-answers')}
           >
             <span className="btn-icon">🔄</span>
-            복습
+            틀린 문제 복습
           </button>
         )}
         <button 
@@ -82,29 +86,38 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           onClick={() => onNavigate('stats')}
         >
           <span className="btn-icon">📊</span>
-          통계
+          내 통계 보기
         </button>
       </div>
 
       <div className="features-section">
+        <h2 className="section-title">학습 기능</h2>
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">🔊</div>
+            <h3>음성 재생</h3>
+            <p>일본어 단어의 정확한 발음을 들어보세요</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">🃏</div>
+            <h3>카드 학습</h3>
+            <p>뒤집기, 힌트 보기 등 다양한 학습 모드</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">📝</div>
+            <h3>다양한 테스트</h3>
+            <p>한자→뜻, 뜻→한자, 읽기→뜻 등 다양한 문제 유형</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">📈</div>
+            <h3>학습 통계</h3>
+            <p>진행률과 성과를 한눈에 확인하세요</p>
           </div>
         </div>
       </div>
 
       <div className="week-preview">
-        <h2 className="section-title"></h2>
+        <h2 className="section-title">학습 가능한 주차</h2>
         <div className="week-preview-grid">
           {availableWeeks.slice(0, 4).map(week => (
             <div 
@@ -113,7 +126,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={() => onNavigate(`study-week-${week}`)}
             >
               <div className="week-icon">📖</div>
-              <h3>{week}</h3>
+              <h3>{week}주차</h3>
+              <p>90개 단어</p>
             </div>
           ))}
         </div>
@@ -122,7 +136,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             className="btn btn-outline"
             onClick={() => onNavigate('weeks')}
           >
-            더보기
+            모든 주차 보기 →
           </button>
         )}
       </div>
