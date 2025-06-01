@@ -39,6 +39,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   
+  /* Fix for vertical text issue */
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
+  
   /* Performance optimizations */
   contain: layout style;
   transform: translateZ(0);
@@ -98,6 +103,11 @@ h5,
 h6 {
   overflow-wrap: break-word;
   font-weight: inherit;
+  
+  /* Force horizontal text layout for all text elements */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
 }
 
 /* 링크 정규화 */
@@ -371,6 +381,23 @@ input[type="number"] {
 /* 하드웨어 가속 */
 .hw-accelerated {
   transform: translate3d(0, 0, 0);
+}
+
+/* 가로 텍스트 강제 유틸리티 */
+.text-horizontal {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  word-break: keep-all !important;
+}
+
+/* 모든 자식 요소에 가로 텍스트 적용 */
+.force-horizontal,
+.force-horizontal * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  word-break: keep-all !important;
 }
 
 /* 스크린 리더 전용 */

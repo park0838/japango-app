@@ -9,6 +9,11 @@
   padding: var(--space-8) var(--space-6);
   position: relative;
   overflow: hidden;
+  
+  /* Ensure horizontal text layout */
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
 }
 
 /* ========================================
@@ -70,6 +75,11 @@
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: var(--font-black);
   margin-bottom: var(--space-6);
+  
+  /* Ensure horizontal text */
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  direction: ltr;
   
   /* 그라데이션 텍스트 */
   background: linear-gradient(
@@ -333,6 +343,12 @@
   font-weight: var(--font-medium);
   letter-spacing: var(--tracking-wide);
   opacity: 0.9;
+  
+  /* Force horizontal text layout */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  word-break: keep-all;
 }
 
 /* ========================================
@@ -414,6 +430,12 @@
   margin-bottom: var(--space-16);
   position: relative;
   display: block;
+  
+  /* Force horizontal text layout */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  word-break: keep-all;
   
   /* Gradient underline effect */
   background: linear-gradient(

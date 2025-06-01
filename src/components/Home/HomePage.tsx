@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   }, [availableWeeks]);
 
   return (
-    <div className="home-page fade-in-up">
+    <div className="home-page fade-in-up force-horizontal">
       <div className="hero-section">
         <h1 className="hero-title">
           <span className="emoji">🇯🇵</span>

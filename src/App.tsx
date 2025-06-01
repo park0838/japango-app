@@ -90,7 +90,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="app force-horizontal">
       <Header 
         currentPage={currentPage}
         onNavigate={handleNavigate}
