@@ -74,7 +74,7 @@ class ErrorBoundary extends Component<Props, State> {
               새로고침하거나 잠시 후 다시 시도해주세요.
             </p>
             
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {import.meta.env.DEV && this.state.error && (
               <details className="error-details">
                 <summary>오류 상세 정보</summary>
                 <pre>{this.state.error.toString()}</pre>
